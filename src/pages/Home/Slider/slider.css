@@ -1,6 +1,6 @@
 .swiper {
     width: 100%;
-    height: 100%;
+    height: 75vh;
   }
   
   .swiper-slide {
@@ -16,9 +16,10 @@
   
   .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 60%;
+    height: 80%;
+    object-fit: fill;
+    color: wh;
   }
   
   .autoplay-progress {

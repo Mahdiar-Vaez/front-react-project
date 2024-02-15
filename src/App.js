@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import PageNotFound from "./pages/404";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
+import './App.css'
 
 export default function App() {
   const { token } = useSelector((state) => state.auth);
@@ -19,7 +20,7 @@ export default function App() {
     <>
       <Navbar />{" "}
       <Box sx={{
-        height:'90vh'
+        height:'max-content'
       }} marginTop={10}>
         <Routes>
           {" "}
