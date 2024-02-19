@@ -24,7 +24,7 @@ export default function Slider() {
   }, []);
   const sliderItems = slider?.map((e, index) => {
     return (
-      <SwiperSlide>
+      <SwiperSlide key={index}>
         <Box 
         sx={{
           position:'relative'

@@ -17,9 +17,9 @@
   .swiper-slide img {
     display: block;
     width: 60%;
-    height: 80%;
-    object-fit: fill;
-    color: wh;
+    height: 70%;
+    object-fit: contain;
+    
   }
   
   .autoplay-progress {
