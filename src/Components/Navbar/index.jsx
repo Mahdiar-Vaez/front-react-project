@@ -20,10 +20,10 @@ export default function Navbar() {
       }}>
         <Box component={'img'} src="./assets/logo.png.webp"  />
         <Stack gap={2} direction={'row'}>
-          <Button startIcon={<HomeIcon/>} color="success" variant="text"><Link to={'/'}>Home</Link></Button>
-          <Button color="success" startIcon={<PermContactCalendarIcon/>} variant="text"><Link to={'/contact'}>Contact</Link></Button>
-          <Button color="success" startIcon={<InventoryIcon/>} variant="text"><Link to={'/'}>Products</Link></Button>
-          <Button startIcon={<CategoryIcon/>} color="success" variant="text"><Link to={'/category'}>Categories</Link></Button>
+        <Link to={'/'}> <Button startIcon={<HomeIcon/>} color="success" variant="text">Home</Button></Link>
+       <Link to={'/contact'}> <Button color="success" startIcon={<PermContactCalendarIcon/>} variant="text">Contact</Button></Link>
+         <Link to={'/products/categories/0/all-categories'}> <Button color="success" startIcon={<InventoryIcon/>} variant="text">Products</Button></Link>
+        <Link to={'/category'}>  <Button startIcon={<CategoryIcon/>} color="success" variant="text">Categories</Button></Link>
         </Stack>
         <Stack gap={2} direction={'row'}>
           <Button variant="contained" color="success"><ShoppingCartIcon fontSize="small"/></Button>

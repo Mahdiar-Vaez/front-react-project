@@ -1,11 +1,12 @@
 .swiper {
-    width: 100%;
+    width: 80%;
     height: 75vh;
   }
   
   .swiper-slide {
     text-align: center;
     font-size: 18px;
+    
     background: #fff;
   
     /* Center slide text vertically */
@@ -20,6 +21,7 @@
     height: 70%;
     object-fit: contain;
     
+    
   }
   
   .autoplay-progress {
@@ -33,7 +35,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: var(--swiper-theme-color);
+    /* color: var(--swiper-theme-color); */
   }
   
   .autoplay-progress svg {
@@ -51,4 +53,6 @@
     stroke-dasharray: 125.6;
     transform: rotate(-90deg);
   }
-  
+  .swiper-important{
+    width: 100%;
+  }

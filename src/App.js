@@ -25,7 +25,7 @@ export default function App() {
         <Routes>
           {" "}
           <Route element={<Home />} path="/" exact />
-          <Route element={<Products />} path="/products/category-name" />
+          <Route element={<Products />} path="/products/categories/:id/:name" />
           <Route
             element={<ProductDetails />}
             path="/product-details/:id/:name"

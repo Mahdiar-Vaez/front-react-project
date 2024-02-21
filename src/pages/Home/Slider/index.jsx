@@ -27,7 +27,8 @@ export default function Slider() {
       <SwiperSlide key={index}>
         <Box 
         sx={{
-          position:'relative'
+          position:'relative',
+        
         }}
           src={
             process.env.REACT_APP_BASE_URL +
@@ -39,8 +40,9 @@ export default function Slider() {
         <Box sx={{
             backgroundColor:'rgba(0,0,0,.4)',
             position:'absolute',
-            width:'60%',
-            height:'80%',
+            width:'56%',
+            
+            height:'70%',
             display:'flex',
             justifyContent:'space-evenly',
             alignItems:'center',

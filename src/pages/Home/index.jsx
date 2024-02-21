@@ -39,7 +39,7 @@ export const DiscountSlider = () => {
     
   
     return (
-      <SwiperSlide
+      <SwiperSlide className="swiper-important"
         style={{
           textAlign: "center",
           fontsize: "18px",
@@ -108,6 +108,7 @@ export default function Home() {
     <Box
       sx={{
         padding: "0 5%",
+       
       }}
     >
       <Slider />
@@ -183,19 +184,22 @@ export default function Home() {
           </Typography>
         </Paper>
       </Box>
-
+      <Typography sx={{
+        letterSpacing:2
+      }} my={5}  fontWeight={900} textAlign={'center'} variant="h5" color={'success'} >Discover Our biggest Discount</Typography>
       <Box
         sx={{
           width: "100%",
           height: "700px",
-          backgroundColor: "rgba(18,18,18,.2)",
+          backgroundColor: "rgba(79,191,38,.4)",
           borderRadius: "20px",
           marginTop: "25px",
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "space-between",
           alignItems: "center",
         }}
       >
+      
         <DiscountSlider />
       </Box>
     </Box>
