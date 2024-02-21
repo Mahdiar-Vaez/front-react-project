@@ -20,14 +20,26 @@ export default function Navbar() {
       }}>
         <Box component={'img'} src="./assets/logo.png.webp"  />
         <Stack gap={2} direction={'row'}>
-        <Link to={'/'}> <Button startIcon={<HomeIcon/>} color="success" variant="text">Home</Button></Link>
+        <Link to={'/'}> <Button  startIcon={<HomeIcon/>} color="success" variant="text">Home</Button></Link>
        <Link to={'/contact'}> <Button color="success" startIcon={<PermContactCalendarIcon/>} variant="text">Contact</Button></Link>
          <Link to={'/products/categories/0/all-categories'}> <Button color="success" startIcon={<InventoryIcon/>} variant="text">Products</Button></Link>
         <Link to={'/category'}>  <Button startIcon={<CategoryIcon/>} color="success" variant="text">Categories</Button></Link>
         </Stack>
         <Stack gap={2} direction={'row'}>
-          <Button variant="contained" color="success"><ShoppingCartIcon fontSize="small"/></Button>
-          <Button variant="contained" color="success">Login</Button>
+          <Button sx={{
+            backgroundColor:'#FFF67E',
+            color:'black',
+            '&:hover':{
+              color:'white'
+            }
+          }} variant="contained" color="success"><ShoppingCartIcon fontSize="small"/></Button>
+          <Button  sx={{
+            backgroundColor:'#FFF67E',
+            color:'black',
+            '&:hover':{
+              color:'white'
+            }
+          }} variant="contained" color="success">Login</Button>
         </Stack>
       </Toolbar>
      </AppBar>

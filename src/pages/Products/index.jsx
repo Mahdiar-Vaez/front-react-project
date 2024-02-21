@@ -30,7 +30,7 @@ export function MediaCard({ image, name, price, discount }) {
         <Typography  >
           {discount>0?<del>${price}</del>:<Typography variant="body1">${price}</Typography>}
         </Typography>
-        <Typography>{discount>0?  price * ((100 - discount) / 100): ""}</Typography>
+        <Typography>{discount>0?  `$${price * ((100 - discount) / 100)}`: ""}</Typography>
       </CardContent>
       <CardActions>
         <Button size="small" variant="contained" color="success">More Info</Button>
@@ -96,9 +96,13 @@ export default function Products() {
     <>
       <Button
         sx={{
-          top: "100px",
+          top: "80px",
           right: "50%",
-          position: "absolute",
+          transform:'translateX(50%)',
+          position: "fixed",
+          backgroundColor:'#9BCF53',
+          zIndex:1
+                     
         }}
         variant="contained"
         color="success"
@@ -107,8 +111,9 @@ export default function Products() {
         Filters and Sort
       </Button>
       <Box
-        my={5}
+        
         sx={{
+          marginTop:'100px',
           width: "100%",
           padding: "10px 5%",
           height: "max-content",
@@ -116,6 +121,7 @@ export default function Products() {
           flexDirection: "row",
           flexWrap:'wrap',
           gap:'20px',
+          backgroundColor:'#FFF67E',
           alignItems: "center",
           justifyContent: "space-around",
         }}
