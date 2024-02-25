@@ -34,13 +34,14 @@ export default function Navbar() {
               color:'white'
             }
           }} variant="contained" color="success"><ShoppingCartIcon fontSize="small"/></Button>
-          <Button  sx={{
+          
+          <Link to={'/login-register'}><Button  sx={{
             backgroundColor:'#FFF67E',
             color:'black',
             '&:hover':{
               color:'white'
             }
-          }} variant="contained" color="success">Login</Button>
+          }} variant="contained" color="success">Login</Button></Link>
         </Stack>
       </Toolbar>
      </AppBar>

@@ -20,6 +20,7 @@ export function MediaCard({ image, name, price, discount,id }) {
     display:'flex',
     flexDirection:'column',
     alignItems:'center',
+  
     justifyContent:'space-between'
      }}>
       <CardMedia className="img-holder" component={'img'}  sx={{ height:'350px',

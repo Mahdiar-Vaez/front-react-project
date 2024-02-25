@@ -49,7 +49,7 @@ export default function ProductDetails() {
         }}
       >
         <Stack sx={{
-          width:'50%',
+          width:'30%',
           display:'flex',
           alignItems:'center'
         }}>
@@ -87,7 +87,10 @@ export default function ProductDetails() {
       
         </Stack>
         <Stack sx={{
-          width:'50%'
+          width:'30%',
+          display:'flex',
+          justifyContent:'center',
+          alignItems:'center'
         }} gap={5}>
           <Typography  variant="h5" fontWeight={800}>
             {product?.attributes?.name}
