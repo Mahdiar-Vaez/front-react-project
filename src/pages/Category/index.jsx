@@ -119,7 +119,7 @@ export default function Category() {
           }}> <Typography textAlign={"center"} fontSize={16} fontWeight={300} variant="body2">
           {e?.attributes?.description}
         
-        </Typography><Link  to={`/product-details/${e?.id}/${e?.attributes?.name}`}><Button   variant="contained"  color="success" >View More</Button></Link>  
+        </Typography><Link  to={`/products/categories/${e?.id}/${e?.attributes?.name}`}><Button   variant="contained"  color="success" >View More</Button></Link>  
         </Stack>
        
       </Box>

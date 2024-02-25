@@ -12,7 +12,8 @@ export default function Navbar() {
     <>
      <AppBar sx={{
       backgroundColor:'white',
-      padding:'5px  5%'
+      padding:'5px  5%',
+      height:78
      }}>
       <Toolbar sx={{
         display:'flex',

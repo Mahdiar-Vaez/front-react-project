@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
+import './style.css'
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -13,33 +14,38 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import fetchApi from "../../utils/fetchApi";
 import shortText from "../../utils/ShortText";
-export function MediaCard({ image, name, price, discount }) {
+export function MediaCard({ image, name, price, discount,id }) {
   return (
-    <Card sx={{ Width: 400 ,height:400  }}>
-      <CardMedia sx={{ height: 250,
-      width:'100%', objectFit:"contain"}} 
+    <Card sx={{ height:500 ,
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center',
+    justifyContent:'space-between'
+     }}>
+      <CardMedia className="img-holder" component={'img'}  sx={{ height:'350px',
+      width:300, objectFit:"cover"}} 
        image={image} />
       <CardContent sx={{
-        height:'25%'
+        height:'20%'
       }}>
         <Typography sx={{
           width:'200px'
         }} gutterBottom variant="body2" fontSize={15} component="div">
-          { shortText(name,30)}
+          { shortText(name,40)}
         </Typography>
-        <Typography  >
+        <Typography>
           {discount>0?<del>${price}</del>:<Typography variant="body1">${price}</Typography>}
         </Typography>
         <Typography>{discount>0?  `$${price * ((100 - discount) / 100)}`: ""}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" variant="contained" color="success">More Info</Button>
+      <Link to={`/product-details/${id}/${name.split(' ').join('-')}`}>    <Button size="small" variant="contained" color="success">More Info</Button></Link>
       </CardActions>
     </Card>
   );
 }
 export default function Products() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   const [price, setPrice] = React.useState([0, 500]);
   const [isDrawerOpen, setDrawer] = useState(false);
   const [sort, setSort] = useState("createdAt:asc");
@@ -62,26 +68,24 @@ export default function Products() {
         const res =await fetchApi(
           `products?populate=*&${
             categoryId !== '0' && `filters[categories][id][$eq]=${categoryId}`
-          }&filters[price][$gte]=${price[0]}&filters[price][$lte]=${
+          }&filters[price][$gt]=${price[0]}&filters[price][$lte]=${
             price[1]
           }&sort=${sort}`
+         
         );
-        console.log( `products?populate=*&${
-          categoryId !== '0' && `filters[categories][id][$eq]=${categoryId}`
-        }filters[price][$gte]=${price[0]}&filters[price][$lte]=${
-          price[1]
-        }&sort=${sort}`)
-        console.log(res.data);
         setProducts(res.data);
+        console.log(products)
       } catch (error) {
         console.log(error);
       }
     })();
   }, [categoryId, sort, price]);
   const productsItems = products?.map((e, index) => {
+    
     return (
       <MediaCard
         key={index}
+        id={e?.id}
         price={e?.attributes?.price}
         discount={e?.attributes?.discount}
         name={e?.attributes?.name}
@@ -113,10 +117,10 @@ export default function Products() {
       <Box
         
         sx={{
-          marginTop:'100px',
+          marginTop:1,
           width: "100%",
           padding: "10px 5%",
-          height: "max-content",
+          minHeight: "90vh",
           display: "flex",
           flexDirection: "row",
           flexWrap:'wrap',
@@ -151,7 +155,7 @@ export default function Products() {
                 getAriaLabel={() => "price range"}
                 value={price}
                 min={0}
-                max={500}
+                max={1000}
                 step={5}
                 onChange={handleChange}
                 valueLabelDisplay="auto"
@@ -189,7 +193,12 @@ export default function Products() {
             </Button>
           </Box>
         </Drawer>
-        {productsItems}
+        {products.length>0?<>{productsItems}</>:<Box sx={{
+          width:'100%',
+          height:'90vh'
+        }}>
+          <Typography variant="h5">Items Not Found</Typography>
+          </Box>}
       </Box>
     </>
   );

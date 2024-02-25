@@ -71,15 +71,18 @@ export default function Slider() {
       }}>
         {" "}
         <Swiper
+        loop={true}
+          style={{
+            '--swiper-pagination-color': '#416D19', // Change the color of the pagination bullets
+            '--swiper-navigation-color': '#416D19' // Change the color of the navigation buttons
+          }}
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
           }}
-          pagination={{
-            clickable: true,
-          }}
+        
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           onAutoplayTimeLeft={onAutoplayTimeLeft}
