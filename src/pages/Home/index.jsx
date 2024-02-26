@@ -27,7 +27,6 @@ export const DiscountSlider = () => {
           "products?populate=*&filters[discount][$gt]=0"
         );
         setDiscount(res.data);
-        console.log(discount);
       } catch (error) {
         console.log(error);
       }

@@ -12,16 +12,20 @@ import Contact from "./pages/Contact";
 import PageNotFound from "./pages/404";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
-import './App.css'
+import "./App.css";
 
 export default function App() {
   const { token } = useSelector((state) => state.auth);
+  console.log(''+token)
   return (
     <>
       <Navbar />{" "}
-      <Box sx={{
-        height:'max-content'
-      }} marginTop={10}>
+      <Box
+        sx={{
+          height: "max-content",
+        }}
+        marginTop={10}
+      >
         <Routes>
           {" "}
           <Route element={<Home />} path="/" exact />
@@ -30,9 +34,9 @@ export default function App() {
             element={<ProductDetails />}
             path="/product-details/:id/:name"
           />
-          <Route element={<LoginRegister />} path="/login-register" />
+          <Route element={token?<Navigate to={'/'} />:<LoginRegister/>} path="/login-register" />
           <Route element={<Category />} path="/category" />
-          <Route element={<Cart />} path="/cart" />
+          <Route path="/cart"  element={token?<Cart/>:<Navigate to={'/login-register'}/>}/>
           <Route element={<Contact />} path="/contact" />
           <Route element={<PageNotFound />} path="*" />
         </Routes>{" "}

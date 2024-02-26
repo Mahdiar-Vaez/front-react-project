@@ -1,139 +1,188 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import '../Login/style.css'
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import axios from 'axios'
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import "../Login/style.css";
+import { Tooltip } from "@mui/material";
+import useFormFields from "../../../utils/UseFormFields";
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        MR.VAEZ 
-      </Link>{' '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="#">
+        MR.VAEZ
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
+export default function Register({ handlePageType }) {
+  const [image,setImage]=React.useState()
+  const [fields,handleFields]=useFormFields()
+  const handleSubmit=(e)=>{
+    e.preventDefault()
 
-export default function Register({handlePageType}) {
-
-
+    axios
+    .post(process.env.REACT_APP_BASE_API+'auth/local/register',fields)
+    .then(()=>{
+      handlePageType()
+      alert('login successfully')
+    }).catch(
+      err=>{
+       
+        alert(err?.response?.data?.error?.message)}
+    )
+    
+  }
   return (
-    <div  className='back-image'>
-            <Box sx={{
-                display:'flex',
-                justifyContent:'center',
-                alignItems:'center',
-                width:'100%',
-                height:'700px',
-                backgroundColor:'rgba(155, 207, 83,.3)'
-            }}>
-                
-      <Container sx={{
-        borderRadius:'20px',
-        backgroundColor:'rgb(255,255,255)'
-      }} component="main" maxWidth="xs">
-        <Box
+    <div className="back-image">
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "700px",
+          backgroundColor: "rgba(155, 207, 83,.3)",
+        }}
+      >
+        <Container
           sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            borderRadius: "20px",
+            backgroundColor: "rgb(255,255,255)",
           }}
+          component="main"
+          maxWidth="xs"
         >
-          <Avatar sx={{ m: 1, bgcolor: 'success' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Register
-            
-          </Typography>
-          <Box  component="form" noValidate  sx={{ mt: 3,
-            
-        }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  color='success'
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Tooltip title={"add photo"} placement="top">
+              <Avatar
+                sx={{ m: 1, bgcolor: "success", cursor: "pointer" }}
+              >
+                 <input
+ style={{
+  opacity:'0',
+  height:100,
+  cursor:'pointer'
+ }}
+    type='file'
+    accept='image/*'
+    onChange={(event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          setImage(event.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    }}
+  />
+  {image ? <img src={image} alt="Profile" /> : ''}
+              </Avatar>
+            </Tooltip>
+            <Typography component="h1" variant="h5">
+              Register
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="username"
+                    name="username"
+                    onChange={handleFields}
+                    required
+                    fullWidth
+                    color="success"
+                    id="username"
+                    label="username"
+                    autoFocus
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    onChange={handleFields}
+                    id="email"
+                    color="success"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    onChange={handleFields}
+                    name="password"
+                    color="success"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox value="allowExtraEmails" color="success" />
+                    }
+                    label="I want to receive inspiration, marketing promotions and updates via email."
+                  />
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                color='success'
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  color='success'
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  color='success'
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox  value="allowExtraEmails" color="success" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color='success'
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>
-                <Typography component={'p'} onClick={handlePageType} sx={{
-                    cursor:'pointer'
-                }} textAlign={'center'} href="#" variant="body2">
-                 Do you have account
-                </Typography>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="success"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign Up
+              </Button>
+              <Typography
+                component={"p"}
+                onClick={handlePageType}
+                sx={{
+                  cursor: "pointer",
+                }}
+                textAlign={"center"}
+                href="#"
+                variant="body2"
+              >
+                Do you have account
+              </Typography>
+            </Box>
           </Box>
-        </Box>
-        <Copyright sx={{ mt: 5 }} />
-      </Container></Box></div>
+          <Copyright sx={{ mt: 5 }} />
+        </Container>
+      </Box>
+    </div>
   );
 }

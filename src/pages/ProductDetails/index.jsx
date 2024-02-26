@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { Box, Button, Stack, Tooltip, Typography } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Form, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-
-
+import { addItem,removeAll,removeItem } from "../../redux/slices/CartSlice";
+import { UseDispatch, useDispatch, useSelector } from "react-redux";
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import fetchApi from "../../utils/fetchApi";
 export default function ProductDetails() {
-  const id = useParams().id;
+  const params = useParams();
+  const dispatch=useDispatch()
+
+  const id = useParams().id;  
+  const quantity=useSelector((state=>state.cart.list))?.filter((e)=>e.id==id
+  )[0]?.quantity
+  console.log(quantity)
   const [product, setProduct] = useState();
-  const [images,setImages]=useState()
   useEffect(() => {
     (async () => {
       try {
@@ -43,13 +48,13 @@ export default function ProductDetails() {
         sx={{
           padding: "10px 5%",
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "space-evenly",
           alignItems: "center",
           gap: "10px",
         }}
       >
         <Stack sx={{
-          width:'30%',
+          width:'40%',
           display:'flex',
           alignItems:'center'
         }}>
@@ -123,12 +128,13 @@ export default function ProductDetails() {
             ""
           )}
           <Tooltip title={'Add to Cart'} placement='top'>
-          <Button sx={{
-            width:'100px',
+          <Button onClick={()=> dispatch((addItem(product)))} sx={{
+            width:'75px',
             height:"50px",
             textAlign:'center'
           }}  size="small" color="success" startIcon={<AddShoppingCartIcon/>} variant="contained" first/>
           </Tooltip>
+          <Typography>{quantity?  quantity +' of this product Added To Your Cart' : ''}</Typography>
         </Stack>
       </Box>
     </>
