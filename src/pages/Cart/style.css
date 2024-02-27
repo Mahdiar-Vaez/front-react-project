@@ -5,3 +5,26 @@
 .add-remove{
     font-size: 20px;
 }
+.empty{
+    animation-name: empty;
+    animation-timing-function: ease;
+    animation-duration: 10s;
+    animation-iteration-count:infinite ;
+}
+@keyframes empty{
+
+    0%{
+    transform: translateX(-50px);
+}
+33%{
+    transform: translateX(50px);
+
+}
+66%{
+    transform: translateX(-50px);
+}
+100%{
+    transform: translateX(50px);
+
+}
+}

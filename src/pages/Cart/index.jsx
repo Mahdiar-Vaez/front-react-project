@@ -95,7 +95,7 @@ export default function Cart() {
         alignItems:'center',
         justifyContent:'center'
       }}>
-      <Typography variant="h3"  textAlign={"center"}>Your cart is empty</Typography>
+      <Typography className="empty" variant="h3"  textAlign={"center"}>Your cart is empty</Typography>
       </Box>
     )}
       
