@@ -90,27 +90,35 @@ export default function Navbar() {
       <AppBar
         sx={{
           backgroundColor: "white",
-          padding: "5px  5%",
+          padding: "5px  10%",
           height: 78,
         }}
       >
         <Toolbar
           sx={{
+            fontFamily:'Alegreya',
             display: "flex",
             justifyContent: "space-between",
           }}
         >
           <Box component={"img"} src="./assets/logo.png.webp" />
           <Stack gap={2} direction={"row"}>
-            <Link to={"/"}>
+            <Link  to={"/"}>
               {" "}
-              <Button startIcon={<HomeIcon />} color="success" variant="text">
+              <Button sx={{
+              fontFamily:'Alegreya',
+              fontWeight:700
+              }}  startIcon={<HomeIcon />} color="success" variant="text">
                 Home
               </Button>
             </Link>
             <Link to={"/contact"}>
               {" "}
               <Button
+              sx={{
+                fontFamily:'Alegreya',
+                fontWeight:700
+                }} 
                 color="success"
                 startIcon={<PermContactCalendarIcon />}
                 variant="text"
@@ -121,6 +129,10 @@ export default function Navbar() {
             <Link to={"/products/categories/0/all-categories"}>
               {" "}
               <Button
+              sx={{
+                fontFamily:'Alegreya',
+                fontWeight:700
+                }} 
                 color="success"
                 startIcon={<InventoryIcon />}
                 variant="text"
@@ -131,6 +143,10 @@ export default function Navbar() {
             <Link to={"/category"}>
               {" "}
               <Button
+              sx={{
+                fontFamily:'Alegreya',
+                fontWeight:700
+                }} 
                 startIcon={<CategoryIcon />}
                 color="success"
                 variant="text"
@@ -143,7 +159,9 @@ export default function Navbar() {
             <Badge color="success" badgeContent={productNum}>
               <Link to={"/cart"}>
                 <Button
-                  sx={{
+            
+                  sx={{  fontFamily:'Alegreya',
+                  fontWeight:700,
                     backgroundColor: "#BFEA7C",
                     color: "black",
                     "&:hover": {
@@ -159,12 +177,14 @@ export default function Navbar() {
             </Badge>
 
             <TextField
+            sx={{
+              fontFamily:'Alegreya',
+              fontWeight:700,    width: "150px",
+              }} 
               onChange={(e) => setSearchInp(e.target.value)}
               color="success"
               value={searchInp}
-              sx={{
-                width: "150px",
-              }}
+           
               size="small"
               label="Search"
               InputProps={{
@@ -218,6 +238,7 @@ export default function Navbar() {
             <Link to={"/login-register"}>
               <Button
                 sx={{
+                  fontFamily:'Alegreya',
                   backgroundColor: "#BFEA7C",
                   color: "black",
                   "&:hover": {

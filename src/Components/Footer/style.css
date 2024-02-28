@@ -1,0 +1,20 @@
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+ul .titr{
+    font-family: 'Alegreya';
+    font-weight: 100;
+    font-size: 20px;
+    color: white;
+}
+.list-items{
+    color: gray;
+    font-family: 'Alegreya';
+    
+}
+.list-items:hover{
+    color: white;
+}

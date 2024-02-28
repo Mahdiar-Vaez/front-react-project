@@ -25,11 +25,10 @@ export default function Slider() {
   const sliderItems = slider?.map((e, index) => {
     return (
       <SwiperSlide key={index}>
-        <Box 
-        sx={{
-          position:'relative',
-        
-        }}
+        <Box className="img-swiper"
+          sx={{
+            position: "relative",
+          }}
           src={
             process.env.REACT_APP_BASE_URL +
             e?.attributes?.image?.data?.attributes?.url
@@ -37,23 +36,26 @@ export default function Slider() {
           alt={e?.attributes?.title}
           component={"img"}
         />
-        <Box sx={{
-            backgroundColor:'rgba(0,0,0,.4)',
-            position:'absolute',
-            width:'56%',
-            
-            height:'70%',
-            display:'flex',
-            justifyContent:'space-evenly',
-            alignItems:'center',
-            flexDirection:'column'
-        }}>
-        
-          <Typography fontFamily={"fantasy"} color={'white'} variant="h3">{e?.attributes?.title}</Typography>
-          <Button variant="contained" color="warning">View More</Button>
+        <Box
+          sx={{
+         
+            position: "absolute",
+            width: "inherit",
+            backgroundColor:'rgba(0, 0, 0,.4)',
+            height:'inherit',
+            display: "flex",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <Typography fontFamily={"fantasy"} color={"white"} variant="h3">
+            {e?.attributes?.title}
+          </Typography>
+          <Button  variant="contained" color="success">
+            View More
+          </Button>
         </Box>
-
-
       </SwiperSlide>
     );
   });
@@ -66,15 +68,16 @@ export default function Slider() {
 
   return (
     <>
-      <Box sx={{
-        padding:'5px 5%'
-      }}>
+      <Box
+        sx={{
+          padding: "5px 5%",
+        }}
+      >
         {" "}
         <Swiper
           style={{
-            '--swiper-pagination-color': '#416D19', // Change the color of the pagination bullets
-            '--swiper-navigation-color': '#416D19' // Change the color of the navigation buttons
-            
+            "--swiper-pagination-color": "#416D19", // Change the color of the pagination bullets
+            "--swiper-navigation-color": "#BFEA7C", // Change the color of the navigation buttons
           }}
           spaceBetween={30}
           centeredSlides={true}
@@ -82,7 +85,6 @@ export default function Slider() {
             delay: 2500,
             disableOnInteraction: false,
           }}
-        
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           onAutoplayTimeLeft={onAutoplayTimeLeft}
