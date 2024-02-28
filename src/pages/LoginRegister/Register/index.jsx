@@ -13,6 +13,7 @@ import Container from "@mui/material/Container";
 import "../Login/style.css";
 import { Tooltip } from "@mui/material";
 import useFormFields from "../../../utils/UseFormFields";
+import { toast } from "react-toastify";
 function Copyright(props) {
   return (
     <Typography
@@ -43,11 +44,11 @@ export default function Register({ handlePageType }) {
     .post(process.env.REACT_APP_BASE_API+'auth/local/register',fields)
     .then(()=>{
       handlePageType()
-      alert('login successfully')
+      toast.success('Registered successfully')
     }).catch(
       err=>{
        
-        alert(err?.response?.data?.error?.message)}
+        toast.error(err?.response?.data?.error?.message)}
     )
     
   }

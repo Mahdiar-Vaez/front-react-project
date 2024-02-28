@@ -25,9 +25,16 @@ import { useSelector } from "react-redux";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import fetchApi from "../../utils/fetchApi";
 import shortText from "../../utils/ShortText";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/slices/AuthSlice";
+import { toast } from "react-toastify";
+import Toast from "../Toast/Toast";
 export default function Navbar() {
   const [searchInp, setSearchInp] = useState();
   const [searchResult, setSearchResult] = useState([]);
+  const  {token} = useSelector((state) => state.auth)
+  console.log(token)
+  const dispatch=useDispatch()
   window.addEventListener('click',(e)=>{
     if(!e?.target.closest('.search-container' )
     )
@@ -234,8 +241,7 @@ export default function Navbar() {
               }
           
             </Box>
-
-            <Link to={"/login-register"}>
+              {!token?  <Link to={"/login-register"}>
               <Button
                 sx={{
                   fontFamily:'Alegreya',
@@ -250,7 +256,12 @@ export default function Navbar() {
               >
                 Login
               </Button>
-            </Link>
+            </Link>:<Button onClick={()=>{
+              toast.success('Logout Successfully')
+              dispatch(logout())}} color="error" variant="contained">
+              Logout 
+              </Button>}
+          <Toast/>
           </Stack>
         </Toolbar>
       </AppBar>
