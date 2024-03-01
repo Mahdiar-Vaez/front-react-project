@@ -2,7 +2,7 @@
     width: 100% !important;
   
 }
-.swiper-important{
+.swiper-sliders{
     width: 30% !important;
     height: 90% !important;
 }
@@ -26,9 +26,7 @@
  
     position: relative;
 }
-.blog-box{
- 
-}
+
 .blog-box:hover p{
     color: #9BCF53;   transition: all .3s;
 }
@@ -50,3 +48,10 @@
 .titr p:nth-child(1){
     border-bottom: 1px solid #9BCF53;
 }
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .mySwiper{
+
+    }
+}
+

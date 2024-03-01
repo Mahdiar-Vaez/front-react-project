@@ -9,6 +9,7 @@ import "./slider.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import fetchApi from "../../../utils/fetchApi";
 import { Box, Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Slider() {
   const [slider, setSlider] = useState();
@@ -49,12 +50,14 @@ export default function Slider() {
             flexDirection: "column",
           }}
         >
-          <Typography fontFamily={"fantasy"} color={"white"} variant="h3">
+          <Typography component={'h2'} fontFamily={"Alegraya"} color={"white"} variant="h3">
             {e?.attributes?.title}
           </Typography>
-          <Button  variant="contained" color="success">
+          <Link to={'/category'}>   <Button  variant="contained" color="success">
             View More
           </Button>
+          </Link>
+        
         </Box>
       </SwiperSlide>
     );

@@ -36,8 +36,8 @@ export default function Cart() {
         <TableCell align="center">{e?.attributes?.price * ((100-e?.attributes?.discount)/100 )}</TableCell>
         <TableCell align="center">{e?.quantity}</TableCell>
         <TableCell align="center">
-          <Button onClick={()=>dispatch(addItem(e))} className="add-remove" color="success">+</Button>
-          <Button  onClick={()=>dispatch(removeItem(e.id))} className="add-remove" color="success">-</Button>
+          <Button  onClick={()=>dispatch(addItem(e))} className="add-remove" color="success">Add</Button>
+          <Button  onClick={()=>dispatch(removeItem(e.id))} className="add-remove" color="error">Remove</Button>
         </TableCell>
         <TableCell align="center">{e?.attributes?.price * ((100-e?.attributes?.discount)/100 )*e.quantity}</TableCell>
 

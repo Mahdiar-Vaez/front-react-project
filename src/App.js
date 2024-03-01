@@ -8,16 +8,14 @@ import ProductDetails from "./pages/ProductDetails";
 import LoginRegister from "./pages/LoginRegister";
 import Category from "./pages/Category";
 import Cart from "./pages/Cart";
-import Contact from "./pages/Contact";
 import PageNotFound from "./pages/404";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 import "./App.css";
-
+import Blog from "./pages/blog";
 export default function App() {
   const { token } = useSelector((state) => state.auth);
-  console.log(''+token)
-  return (
+    return (
     <>
       <Navbar />{" "}
       <Box
@@ -37,7 +35,7 @@ export default function App() {
           <Route element={token?<Navigate to={'/'} />:<LoginRegister/>} path="/login-register" />
           <Route element={<Category />} path="/category" />
           <Route path="/cart"  element={token?<Cart/>:<Navigate to={'/login-register'}/>}/>
-          <Route element={<Contact />} path="/contact" />
+          <Route element={<Blog />} path="/blog" />
           <Route element={<PageNotFound />} path="*" />
         </Routes>{" "}
       </Box>

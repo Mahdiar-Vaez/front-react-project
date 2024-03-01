@@ -35,8 +35,8 @@ export const DiscountSlider = () => {
   }, []);
   const Items = discount?.map((e, index) => {
     return (
-      <SwiperSlide
-        className="swiper-important"
+      <SwiperSlide key={index}
+        className="swiper-sliders"
         style={{
           textAlign: "center",
           borderRadius: "20px",
@@ -57,15 +57,13 @@ export const DiscountSlider = () => {
             height: 400,
           }}
           component={"img"}
-          key={index}
           src={
             process.env.REACT_APP_BASE_URL +
             e?.attributes?.image?.data[0]?.attributes?.url
           }
-          alt=""
+          alt={e?.attributes?.name}
         />
 
-        {console.log(e?.attributes?.image?.data?.attributes?.url)}
         <Typography variant="body2" fontSize={15}>
           {shortText(e?.attributes?.name, 30)}
         </Typography>
