@@ -1,14 +1,22 @@
 ul{
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row !important;
     list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    flex-wrap: wrap;
 }
-ul .titr{
+.titr{
     font-family: 'Alegreya';
-    font-weight: 100;
+    font-weight: 600;
     font-size: 20px;
     color: white;
+    list-style: none;
+    text-align: center;
+    
+    
 }
 .list-items{
     color: gray;
@@ -17,4 +25,9 @@ ul .titr{
 }
 .list-items:hover{
     color: white;
+}
+@media only screen and (max-width:600px){
+    ul{
+        flex-direction: column;
+    }
 }

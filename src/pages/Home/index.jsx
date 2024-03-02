@@ -69,7 +69,7 @@ export const DiscountSlider = () => {
             xs:'14px',sm:'16px',md:'18px',lg:'20px'
           }
         }}>
-          {shortText(e?.attributes?.name, 15)}
+          {shortText(e?.attributes?.name, 10)}
         </Typography>
         <del> ${e?.attributes?.price} </del>
         <Typography component={'p'} variant="body2">
@@ -290,8 +290,8 @@ export default function Home() {
           marginTop: "25px",
           display: "flex",
           padding:'10px',
+          justifyContent:'space-evenly',
           flexDirection: "column",
-          justifyContent: "space-between",
           alignItems: "center",
         }}
       >
@@ -400,7 +400,7 @@ export default function Home() {
           </Link>
         </Box>
       </Box>
-      <Box className="titr"> <Typography fontSize={20} fontFamily={'Alegreya'} fontWeight={900} component={'p'}>
+      <Box className="blog-titr"> <Typography fontSize={20} fontFamily={'Alegreya'} fontWeight={900} component={'p'}>
       LATEST BLOG
       </Typography>
       <Typography fontFamily={'Alegreya'} fontSize={17}>Bring called seed first of third give itself now ment
@@ -423,29 +423,43 @@ export default function Home() {
         }
       }} className="blog-container">
         <Box sx={
-            {width:{xs:'100% !important'}}
+            {width:{xs:'100% !important'},
+          height:450
+          }
           } className="blog-box">
           <Box  component={"img"} src="./assets/b1.jpg.webp" />
           <Box>
             <Typography
               fontFamily={"Alegreya"}
               textAlign={"center"}
-              fontSize={20}
-              fontWeight={900}
+              sx={{
+                fontSize:{
+                  xs:14,sm:16,md:18,lg:20
+                }
+              }}
+              fontWeight={800}
             >
               How to choose the best clothes
             </Typography>
             <Typography
               textAlign={"center"}
               fontFamily={"Alegreya"}
-              fontSize={16}
+              sx={{
+                fontSize:{
+                  xs:14,sm:16,md:18,lg:20
+                }
+              }}
               variant="body2"
             >
               Let one fifth i bring fly to divided face for bearing the divide
               unto seed winged divided light Forth.
             </Typography>
           </Box>{" "}
-          <Button
+          <Button sx={{
+              fontSize:{
+                xs:12,sm:14,md:16,lg:18
+              }
+          }}
             endIcon={<ArrowForwardIosIcon fontSize="small" />}
             color="success"
           >
@@ -460,22 +474,32 @@ export default function Home() {
             <Typography
               fontFamily={"Alegreya"}
               textAlign={"center"}
-              fontSize={20}
-              fontWeight={900}
+              sx={{
+                fontSize:{
+                  xs:14,sm:16,md:18,lg:20
+                }
+              }}
+              fontWeight={800}
             >
               How to choose the best clothes
             </Typography>
             <Typography
               textAlign={"center"}
               fontFamily={"Alegreya"}
-              fontSize={16}
+              sx={{
+                fontSize:{
+                  xs:14,sm:16,md:18,lg:20
+                }}}
               variant="body2"
             >
               Let one fifth i bring fly to divided face for bearing the divide
               unto seed winged divided light Forth.
             </Typography>
           </Box>{" "}
-          <Button
+          <Button    sx={{
+                fontSize:{
+                  xs:14,sm:16,md:18,lg:20
+                }}}
             endIcon={<ArrowForwardIosIcon fontSize="small" />}
             color="success"
           >
@@ -491,22 +515,31 @@ export default function Home() {
             <Typography
               fontFamily={"Alegreya"}
               textAlign={"center"}
-              fontSize={20}
-              fontWeight={900}
+              sx={{
+                fontSize:{
+                  xs:14,sm:16,md:18,lg:20
+                }}}
+              fontWeight={800}
             >
               How to choose the best clothes
             </Typography>
             <Typography
               textAlign={"center"}
               fontFamily={"Alegreya"}
-              fontSize={16}
+              sx={{
+                fontSize:{
+                  xs:14,sm:16,md:18,lg:20
+                }}}
               variant="body2"
             >
               Let one fifth i bring fly to divided face for bearing the divide
               unto seed winged divided light Forth.
             </Typography>
           </Box>{" "}
-          <Button
+          <Button   sx={{
+                fontSize:{
+                  xs:14,sm:16,md:18,lg:17
+                }}}
             endIcon={<ArrowForwardIosIcon fontSize="small" />}
             color="success"
           >

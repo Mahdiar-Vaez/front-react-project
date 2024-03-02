@@ -25,9 +25,9 @@
     justify-content:center;
     align-items:center;
     width: 30%; gap: 20px;  
-    height: 500px;
+    height: 450px;
     overflow: hidden;
- 
+    margin: 10px 0;
     position: relative;
 }
 
@@ -36,12 +36,13 @@
 }
 .blog-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: start;
     width: 100%;
+    height: max-content;
     overflow: hidden;
 }
-.titr{
+.blog-titr{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -49,7 +50,7 @@
     align-items: center;
     gap: 20px;
 }
-.titr p:nth-child(1){
+.blog-titr p:nth-child(1){
     border-bottom: 1px solid #9BCF53;
 }
 /* Extra small devices (phones, 600px and down) */

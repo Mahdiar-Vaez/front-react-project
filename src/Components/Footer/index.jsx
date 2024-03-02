@@ -12,21 +12,30 @@ export default function Footer() {
       sx={{
         backgroundColor: "rgb(7, 15, 43) ",
         padding: "20px 10%",
-        height: "350px",
+        height: {md:"350px",
+      xs:'max-content',
+    md:'600px'},
       }}
       component={"footer"}
     >
       <Box
+
         sx={{
+          gap:'10px',
           display: "flex",
           justifyContent: "space-between",
-
-          height: "250px",
+          flexDirection:{
+            xs:'row',
+            md:'column'
+            
+          },
+          flexWrap:'wrap',
+          height: "max-content",
           backgroundColor: "rgb(7, 15, 43) ",
         }}
       >
+          <Typography className="titr">Top Products</Typography>
         <ul>
-          <li className="titr">Top Products</li>
           <a href="#">
             {" "}
             <li className="list-items">Managed Website</li>{" "}
@@ -44,8 +53,8 @@ export default function Footer() {
             <li className="list-items">Marketing Service</li>{" "}
           </a>
         </ul>
+        <Typography className="titr">Quick Links</Typography>
         <ul>
-          <li className="titr">Quick Links</li>
           <a href="#">
             {" "}
             <li className="list-items">Jobs</li>{" "}
@@ -63,8 +72,8 @@ export default function Footer() {
             <li className="list-items">Marketing Service</li>{" "}
           </a>
         </ul>
+        <Typography className="titr">Features</Typography>
         <ul>
-          <li className="titr">Features</li>
           <a href="#">
             {" "}
             <li className="list-items">Item 1</li>{" "}
@@ -82,8 +91,8 @@ export default function Footer() {
             <li className="list-items">Item 4</li>{" "}
           </a>
         </ul>
+        <Typography className="titr">Resources</Typography>
         <ul>
-          <li className="titr">Resources</li>
           <a href="#">
             {" "}
             <li className="list-items">Guides</li>{" "}
@@ -101,7 +110,17 @@ export default function Footer() {
             <li className="list-items">Agencies</li>{" "}
           </a>
         </ul>
-        <ul>
+        <Box 
+        sx={{
+          width:'100%',
+          display:'flex',
+          justifyContent:'center'
+          ,gap:'20px'
+          ,alignItems:'center',
+          flexDirection:{
+            xs:'column'
+          }
+        }}>
           <Typography
             color={"white"}
             fontWeight={100}
@@ -142,6 +161,9 @@ export default function Footer() {
           <Box
             sx={{
               display: "flex",
+              flexDirection:{
+                xs:'row'
+              },
               gap: "20px",
             }}
             className="social-media"
@@ -164,27 +186,28 @@ export default function Footer() {
               <TelegramIcon color="primary" />
             </a>
             <a
-  href="https://www.instagram.com/mahdiarvaez"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <InstagramIcon color="secondary" />
-</a>
+              href="https://www.instagram.com/mahdiarvaez"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon color="secondary" />
+            </a>
           </Box>
-        </ul>
+        </Box>
       </Box>
       <Box
         sx={{
           display: "flex",
           marginTop: "20px",
           marginBottom: 5,
+         justifyContent:'center'
         }}
       >
         <Typography
           color={"white"}
           fontFamily={"Alegreya"}
           textAlign={"center"}
-          variant=""
+        
         >
           Copyright 2024 All rights reserved | This is made with 💚 by Mahdiar
           Vaez
