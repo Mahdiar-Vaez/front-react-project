@@ -1,6 +1,7 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
+  Avatar,
   Badge,
   Box,
   Button,
@@ -62,11 +63,16 @@ export default function Navbar() {
   const searchResultItems = searchResult?.map((e, index) => {
     return (
       <Card
-          sx={{ width: "25%", marginTop: "5px", marginBottom:'20px',height:{
-          xs:'20vh',
-          md:'150px',
-          lg:'200px '
-        }  }}
+        sx={{
+          width: "25%",
+          marginTop: "5px",
+          marginBottom: "20px",
+          height: {
+            xs: "20vh",
+            md: "150px",
+            lg: "200px ",
+          },
+        }}
         key={index}
       >
         <Link
@@ -74,19 +80,20 @@ export default function Navbar() {
             .split(" ")
             .join("-")}`}
         >
-          <CardActionArea sx={{
-            height:'100%'
-          }} onClick={() => setSearchInp("")}>
+          <CardActionArea
+            sx={{
+              height: "100%",
+            }}
+            onClick={() => setSearchInp("")}
+          >
             <CardMedia
               component={"img"}
               sx={{
-                width:{
-                  xs:'100%'
-                }
-                ,height:{xs:'10vh',md:'75px',
-              lg:'100px'
-              },
-              objectFit:'contain'
+                width: {
+                  xs: "100%",
+                },
+                height: { xs: "10vh", md: "75px", lg: "100px" },
+                objectFit: "contain",
               }}
               src={
                 process.env.REACT_APP_BASE_URL +
@@ -94,18 +101,22 @@ export default function Navbar() {
               }
             />
             <CardContent>
-              <Typography textAlign={'center'}  sx={{
-                fontSize:{
-                 xs:'10px',
-                 sx:'12px',
-                 md:'16px',
-                 lg:'	18px',
-                },
-                fontWeight:{
-                  xs:500,
-                  lg:500
-                }
-              }} variant="h6">
+              <Typography
+                textAlign={"center"}
+                sx={{
+                  fontSize: {
+                    xs: "10px",
+                    sx: "12px",
+                    md: "16px",
+                    lg: "	18px",
+                  },
+                  fontWeight: {
+                    xs: 500,
+                    lg: 500,
+                  },
+                }}
+                variant="h6"
+              >
                 {shortText(e?.attributes?.name, 20)}
               </Typography>
             </CardContent>
@@ -118,12 +129,12 @@ export default function Navbar() {
     <>
       <Stack
         sx={{
-          position:'fixed',
-          top:"0",
-          backgroundColor:'white',
-          boxShadow:'0 0 20px 0',
-          width:'100%',
-          zIndex:100,
+          position: "fixed",
+          top: "0",
+          backgroundColor: "white",
+          boxShadow: "0 0 20px 0",
+          width: "100%",
+          zIndex: 100,
           display: {
             xs: "flex",
             lg: "none",
@@ -131,17 +142,19 @@ export default function Navbar() {
           padding: "20px 10%",
         }}
         direction={"row"}
-        justifyContent={"space-around"}
-        gap={'50px'}
+        justifyContent={"space-between"}
+        gap={"50px"}
       >
         {" "}
-        <Box component={"img"} width={50} sx={{
-          objectFit:'contain'
-        }} src="./assets/logo.png.webp" />{" "}
+        <Avatar src="./assets/logo.jpg" />
         <Tooltip title={"Open Menu"}>
           <Button
+
             sx={{
               textAlign: "center",
+              position:"absolute",
+              right:'50%',
+              transform:'translateX(50%)'
             }}
             onClick={() => setDrawer(true)}
           >
@@ -152,7 +165,9 @@ export default function Navbar() {
         <TextField
           sx={{
             fontFamily: "Alegreya",
-            width: "150px",
+            width: {
+              xs:'125px'
+            },
           }}
           onChange={(e) => setSearchInp(e.target.value)}
           color="success"
@@ -167,51 +182,59 @@ export default function Navbar() {
             ),
           }}
         />
-           <Box
-              className="search-container"
+        <Box
+          className="search-container"
+          sx={{
+            borderRadius: "20px",
+            padding: "20px",
+            position: "absolute",
+            zIndex: 10,
+            right: "50%",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "start",
+            flexWrap: "wrap",
+            width: "80vw",
+            transform: "translateX(50%)",
+            height: "700px",
+            overflow: "auto",
+            gap: "20px",
+            visibility: searchInp ? "visible" : "hidden",
+            opacity: searchInp ? "1" : "0",
+            marginTop: "60px",
+            backgroundColor: "rgba(191, 234, 124,.9)",
+          }}
+        >
+          {searchResult.length > 0 ? (
+            searchResultItems
+          ) : (
+            <Box
               sx={{
-                borderRadius:"20px",
-                padding: "20px",
-                position: "absolute",
-                zIndex:10,
-                right: "50%",
+                width: "100%",
+                height: "400px",
                 display: "flex",
-                justifyContent: "space-around",
-                alignItems: "start",
-                flexWrap: "wrap",
-                width: "80vw",
-                transform: "translateX(50%)",
-                height: "700px",
-                overflow: "auto",
-                gap: "20px",
-                visibility: searchInp ? "visible" : "hidden",
-                opacity: searchInp ? "1" : "0",
-                marginTop: "60px",
-                backgroundColor: "rgba(191, 234, 124,.9)",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              {searchResult.length > 0 ? (
-                searchResultItems
-              ) : (
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "400px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Typography color={"black"} variant="h3" fontWeight={900}>
-                    Product Not found
-                  </Typography>
-                </Box>
-              )}
+              <Typography color={"black"} variant="h3" fontWeight={900}>
+                Product Not found
+              </Typography>
             </Box>
+          )}
+        </Box>
       </Stack>
 
       <Drawer open={drawer} onClose={() => setDrawer(false)}>
-        <Stack sx={{height:'90vh'}} padding={2} width={200} gap={3} alignItems={"center"} justifyContent={'space-between'} direction={"column"}>
+        <Stack
+          sx={{ height: "90vh" }}
+          padding={2}
+          width={200}
+          gap={3}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+          direction={"column"}
+        >
           {" "}
           <Badge color="success" badgeContent={productNum}>
             <Link to={"/cart"}>
@@ -340,7 +363,7 @@ export default function Navbar() {
             justifyContent: "space-between",
           }}
         >
-          <Box component={"img"} src="./assets/logo.png.webp" />
+          <Avatar src="./assets/logo.jpg" />{" "}
           <Stack gap={2} alignItems={"center"} direction={"row"}>
             <Link to={"/"}>
               {" "}

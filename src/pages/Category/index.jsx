@@ -9,8 +9,17 @@ export function CategoriesCart({ id, name, image }) {
   return (
     <Box
       sx={{
-        width: 600,
+        display:'flex',
+        flexDirection:{
+          xs:'column',
+          md:'row'
+        },
+        width: {
+          xs:'100%',
+          md:600
+        },
         height: 400,
+
         transition: "all .4s ",
         position: "relative",
         "&:hover img": {
@@ -19,7 +28,6 @@ export function CategoriesCart({ id, name, image }) {
         "&:hover div": {
           opacity: 1,
           visibility: "visible",
-
           transform: "scale(1)",
         },
       }}
@@ -40,7 +48,7 @@ export function CategoriesCart({ id, name, image }) {
       <Box
         variant="text"
         sx={{
-          width: "100%",
+          width: "100%",  
 
           position: "absolute",
           backgroundColor: "rgba(65, 109, 25,.6)",
@@ -73,7 +81,6 @@ export function CategoriesCart({ id, name, image }) {
         </Button>
         </Link>
       </Box>
-      <Box></Box>
     </Box>
   );
 }
@@ -100,6 +107,10 @@ export default function Category() {
       <Box    key={index} sx={{
         display:'flex',
         width:'100%',
+        flexDirection:{
+          xs:'column',
+          md:'row'
+        },
         justifyContent:'space-evenly',
       }}>
         <CategoriesCart
@@ -111,12 +122,15 @@ export default function Category() {
             e?.attributes?.image?.data?.attributes?.url
           }
         />
-          <Stack direction={"column"} alignItems={'center'} justifyContent={'space-evenly'} sx={{
+          <Stack direction={"column"} gap={'10px'}  alignItems={'center'} justifyContent={'center'} sx={{
             padding:'20px',
-            width:'40%',
+            width:{
+              xs:'100%',
+              md:'40%'
+            },
             borderRadius:'20px',
-            backgroundColor:'#bfba7c'
-          }}> <Typography textAlign={"center"} fontSize={16} fontWeight={300} variant="body2">
+            backgroundColor:'rgba(255, 246, 126,.5)'
+          }}> <Typography textAlign={"center"}  fontSize={16} fontWeight={300} variant="body2">
           {e?.attributes?.description}
         
         </Typography><Link  to={`/products/categories/${e?.id}/${e?.attributes?.name}`}><Button   variant="contained"  color="success" >View More</Button></Link>  
@@ -131,7 +145,7 @@ export default function Category() {
         sx={{
           padding: "5px 5%",
           height: "max-content",
-          backgroundColor: "rgb(255, 246, 126)",
+          backgroundColor: "rgba(191, 234, 124)",
         }}
         direction={"column"}
         gap={4}

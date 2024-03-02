@@ -415,12 +415,9 @@ export default function Home() {
           md:"row"
         },
         gap:'10px',
-        alignItems:{
-          xs:'center !important'
-        },
-        justifyContent:{
-          xs:'center !important'
-        }
+        alignItems:'center',
+        justifyContent:'space-between !important'
+        
       }} className="blog-container">
         <Box sx={
             {width:{xs:'100% !important'},

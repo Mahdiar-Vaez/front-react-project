@@ -1,7 +1,6 @@
-import React, { createElement, useEffect, useRef, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
-import "./style.css";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -19,48 +18,95 @@ export function MediaCard({ image, name, price, discount, id }) {
   return (
     <Card
       sx={{
-        height: 500,
+        width: {
+          xs:'45% !important',
+          md:'20% !important'
+
+        },
+        height:{
+          xs:'300px',
+          md:'400px'
+          
+        },
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
 
         justifyContent: "space-between",
+        
       }}
     >
       <CardMedia
         className="img-holder"
         component={"img"}
-        sx={{ height: "350px", width: 300, objectFit: "cover" }}
+        sx={{ height: '50%'
+          
+        , width: 300, objectFit: "contain" }}
         image={image}
       />
       <CardContent
         sx={{
-          height: "20%",
+          height: {
+            xs:'20%',
+            md:'20%'
+          },
         }}
       >
         <Typography
+        textAlign={'center'}
           sx={{
             width: "200px",
+            fontSize:{
+              xs:'12px',
+              sm:'14px',
+              md:"16px",
+              lg:'18px'
+            }
           }}
           gutterBottom
           variant="body2"
-          fontSize={15}
-          component="div"
+         component="div"
         >
-          {shortText(name, 40)}
+          {shortText(name, 15)}
         </Typography>
-        <Typography>
+        <Typography textAlign={'center'} sx={{fontSize:{
+              xs:'15px',
+              sm:'17px',
+              md:"19px",
+              lg:'21px'
+            }}}>
           {discount > 0 ? (
-            <del>${price}</del>
+            <Typography fontFamily={'Alegreya'} sx={{
+             fontSize:{ xs:'15px',
+              sm:'17px',
+              md:"19px",
+              lg:'21px'}
+            }} component={'del'} className="del">${price}</Typography>
           ) : (
-            <Typography variant="body1">${price}</Typography>
+            <Typography sx={{
+              fontSize:{
+                xs:'15px',
+                sm:'17px',
+                md:"19px",
+                lg:'21px'
+              }
+            }} textAlign={'center'} variant="body1">${price}</Typography>
           )}
         </Typography>
-        <Typography>
+        <Typography sx={{
+        
+            fontSize:{
+              xs:'15px',
+              sm:'17px',
+              md:"19px",
+              lg:'21px'
+            }
+      
+        }} textAlign={'center'}>
           {discount > 0 ? `$${price * ((100 - discount) / 100)}` : ""}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{display:'flex',alignItems:'end'}}>
         <Link to={`/product-details/${id}/${name.split(" ").join("-")}`}>
           {" "}
           <Button size="small" variant="contained" color="success">
@@ -126,7 +172,7 @@ export default function Products() {
     <>
       <Button
         sx={{
-          top: "80px",
+          top: "100px",
           right: "50%",
           transform: "translateX(50%)",
           position: "fixed",
@@ -141,6 +187,7 @@ export default function Products() {
       </Button>
       <Box
         sx={{
+
           marginTop: 1,
           width: "100%",
           padding: "10px 5%",
@@ -149,7 +196,7 @@ export default function Products() {
           flexDirection: "row",
           flexWrap: "wrap",
           gap: "20px",
-          backgroundColor: "#FFF67E",
+          backgroundColor: "#BFEA7C",
           alignItems: "center",
           justifyContent: "space-around",
         }}
@@ -225,7 +272,6 @@ export default function Products() {
             </Button>
           </Box>
         </Drawer>
-        
         {products.length > 0 ? (
           <>{productsItems}</>
         ) : (

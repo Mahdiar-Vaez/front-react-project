@@ -140,6 +140,7 @@ export default function Footer() {
           <TextField
             onChange={(e) => setEmail(e.target.value)}
             variant="standard"
+            value={email}
             sx={{
               backgroundColor: "white",
               textAlign: "center",
@@ -148,11 +149,14 @@ export default function Footer() {
             color="success"
           />
           <Button
-            onClick={() =>
+            onClick={() =>{  setEmail('')
               email
                 ? alert("Your E-mail Added Successfully ✔ ")
-                : alert("First Enter Your Email ")
+                
+                : alert("First Enter Your Email ")}
+
             }
+          
             variant="contained"
             color="success"
           >
