@@ -52,9 +52,9 @@ export const DiscountSlider = () => {
       >
         <Box
           sx={{
-            objectFit: "cover",
+            objectFit: "contain",
             width: "100%",
-            height: 400,
+            
           }}
           component={"img"}
           src={
@@ -64,11 +64,15 @@ export const DiscountSlider = () => {
           alt={e?.attributes?.name}
         />
 
-        <Typography variant="body2" fontSize={15}>
-          {shortText(e?.attributes?.name, 30)}
+        <Typography variant="body2" sx={{
+          fontSize:{
+            xs:'14px',sm:'16px',md:'18px',lg:'20px'
+          }
+        }}>
+          {shortText(e?.attributes?.name, 15)}
         </Typography>
         <del> ${e?.attributes?.price} </del>
-        <Typography variant="body2">
+        <Typography component={'p'} variant="body2">
           ${e?.attributes?.price * ((100 - e?.attributes?.discount) / 100)}
         </Typography>
         <Link
@@ -77,7 +81,12 @@ export const DiscountSlider = () => {
             .join("-")}`}
         >
           {" "}
-          <Button color="success" variant="contained">
+          <Button sx={{
+            width:{
+              xs:'50px',
+              sm:'75px'
+            }
+          }} color="success" variant="contained">
             More Info
           </Button>
         </Link>
@@ -92,14 +101,16 @@ export const DiscountSlider = () => {
         display: "flex",
         alignItems: "center",
       }}
-      slidesPerView={4}
+      slidesPerView={'auto'}
       autoplay={true}
-      spaceBetween={30}
-      freeMode={true}
-      modules={[Pagination, Autoplay]}
+      spaceBetween={20}
+     
+      modules={[ Autoplay]}
       className="mySwiper"
     >
       {Items}
+      
+      
     </Swiper>
   );
 };
@@ -116,13 +127,28 @@ export default function Home() {
           display: "flex",
           justifyContent: "space-evenly",
           alignItems: "center",
+          flexWrap:'wrap',
+          width:'100%',
+          flexDirection:{
+            xs:"column",
+            md:'row'
+          }
+          ,gap:'20px'
         }}
       >
         <Paper
           className="paper"
           sx={{
-            width: "20%",
-            height: "100px",
+            width: {
+              xs:'100%',md:'45%',lg:"20%"
+              
+            },
+            
+            height: {
+              xs:75,
+              md:100,
+              
+            },
             textAlign: "center",
           }}
         >
@@ -143,8 +169,16 @@ export default function Home() {
         <Paper
           className="paper"
           sx={{
-            width: "20%",
-            height: "100px",
+            width: {
+              xs:'100%',md:'45%',lg:"20%"
+              
+            },
+            
+            height: {
+              xs:75,
+              md:100,
+              
+            },
             textAlign: "center",
           }}
         >
@@ -165,8 +199,16 @@ export default function Home() {
         <Paper
           className="paper"
           sx={{
-            width: "20%",
-            height: "100px",
+            width: {
+              xs:'100%',md:'45%',lg:"20%"
+              
+            },
+            
+            height: {
+              xs:75,
+              md:100,
+              
+            },
             textAlign: "center",
           }}
         >
@@ -187,8 +229,16 @@ export default function Home() {
         <Paper
           className="paper"
           sx={{
-            width: "20%",
-            height: "100px",
+            width: {
+              xs:'100%',md:'45%',lg:"20%"
+              
+            },
+            
+            height: {
+              xs:75,
+              md:100,
+              
+            },
             textAlign: "center",
           }}
         >
@@ -209,7 +259,14 @@ export default function Home() {
       <Typography
         sx={{
           letterSpacing: 2,
+          fontSize:{
+            xs:'15px',
+            sx:'17px',
+            md:'19px',
+            lg:'21px',
+           },
         }}
+        
         my={5}
         fontWeight={900}
         textAlign={"center"}
@@ -217,23 +274,36 @@ export default function Home() {
         variant="h4"
         color={"#416D19"}
       >
-        <DiscountIcon /> Discover Our biggest Discount <DiscountIcon />
+        <DiscountIcon fontSize="small" /> Discover Our biggest Discount <DiscountIcon fontSize="small" />
       </Typography>
       <Box
         sx={{
           width: "100%",
-          height: "700px",
+          height: {
+            xs:'50vh',
+            sm:'55vh',
+            md:'60vh',
+            lg:'65vh'
+          },
           backgroundColor: "rgba(79,191,38,.4)",
           borderRadius: "20px",
           marginTop: "25px",
           display: "flex",
+          padding:'10px',
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "space-between",
           alignItems: "center",
         }}
       >
         <DiscountSlider />
-        <Typography fontWeight={500} fontSize={20} fontFamily={"Alegreya"}>
+        <Typography sx={{
+          fontSize:{
+            xs:'15px',
+            sx:'17px',
+            md:'19px',
+            lg:'21px',
+           },
+        }}  textAlign={'center'} fontWeight={500} fontSize={20} fontFamily={"Alegreya"}>
           These products are available for limited time only. Don't miss out on
           this amazing offer!
         </Typography>
@@ -244,7 +314,12 @@ export default function Home() {
         sx={{
           width: "100%",
           marginTop: "40px",
-          height: "500px",
+          height: {
+            xs:'200px',
+            sm:'400px',
+            md:'450px',
+            lg:'500px'
+          },
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
@@ -257,9 +332,9 @@ export default function Home() {
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
             width: "100%",
-            gap: "40px",
+            gap: "20px",
             backgroundColor: "rgba(0, 0, 0,.6)",
             alignItems: "center",
             height: "100%",
@@ -272,6 +347,14 @@ export default function Home() {
             fontWeight={700}
             fontFamily={"Alegreya"}
             variant="h3"
+            sx={{
+              fontSize:{
+                xs:'25px',
+                sm:'27px',
+                md:'29px',
+                lg:'35px'
+              }
+            }}
           >
             ALL{" "}
             <span
@@ -286,7 +369,15 @@ export default function Home() {
           <Typography
             textAlign={"center"}
             fontWeight={800}
-            fontSize={50}
+            sx={{
+              fontSize:{
+                xs:'25px',
+                sm:"27px",
+                md:29,
+                lg:50
+
+              }
+            }}
             variant="h3"
           >
             Up To 10%
@@ -294,7 +385,12 @@ export default function Home() {
           <Link to={"/products/categories/3/MEN"}>
             <Button
               sx={{
-                height: "50px",
+                fontSize:{
+                  xs:'10px',
+                  sm:'12px',
+                  md:17,
+                  lg:20
+                },
               }}
               variant="contained"
               color="success"
@@ -312,9 +408,24 @@ export default function Home() {
 </Typography>
       </Box>
      
-      <Box className="blog-container">
-        <Box className="blog-box">
-          <Box component={"img"} src="./assets/b1.jpg.webp" />
+      <Box sx={{
+
+        flexDirection:{
+          xs:'column',
+          md:"row"
+        },
+        gap:'10px',
+        alignItems:{
+          xs:'center !important'
+        },
+        justifyContent:{
+          xs:'center !important'
+        }
+      }} className="blog-container">
+        <Box sx={
+            {width:{xs:'100% !important'}}
+          } className="blog-box">
+          <Box  component={"img"} src="./assets/b1.jpg.webp" />
           <Box>
             <Typography
               fontFamily={"Alegreya"}
@@ -341,7 +452,9 @@ export default function Home() {
             Learn More
           </Button>
         </Box>
-        <Box className="blog-box">
+        <Box  sx={
+            {width:{xs:'100% !important'}}
+          } className="blog-box">
           <Box component={"img"} src="./assets/b2.jpg.webp" />
           <Box>
             <Typography
@@ -369,7 +482,9 @@ export default function Home() {
             Learn More
           </Button>
         </Box>
-        <Box className="blog-box">
+        <Box  sx={
+            {width:{xs:'100% !important'}}
+          } className="blog-box">
           <Box component={"img"} src="./assets/b3.jpg.webp"/>
           
           <Box>

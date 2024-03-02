@@ -20,8 +20,9 @@
   .swiper-slide img {
     display: block;
     width: 100%;
-    height: 1000px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+  
     
     
   }
@@ -51,15 +52,21 @@
     height: 100%;
     stroke-width: 4px;
     stroke: #416D19;
+    
     fill: none;
     stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
     stroke-dasharray: 125.6;
     transform: rotate(-90deg);
   }
 /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 450px){
+  .img-swiper{
+    height: 20vh !important;
+  }
+}
 @media only screen and (max-width: 600px) {
   .swiper{
-height:30vh ;
+height:25vh ;
   }
   .swiper h2{
     font-size:20px ;
@@ -67,6 +74,15 @@ height:30vh ;
   .swiper button{
     width: 100px;
     font-size: 10px;
+  }
+  .swiper-slide img{
+    height: 100%;
+  }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    width: 20px; /* set the width of the arrow */
+    height: 50px; /* set the height of the arrow */
+    font-size: 24px; /* set the font size of the arrow icon */
   }
 }
 
@@ -81,6 +97,12 @@ height:30vh ;
         width: 100px;
         font-size: 12px;
       }
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        width: 20px; /* set the width of the arrow */
+        height: 50px; /* set the height of the arrow */
+        font-size: 24px; /* set the font size of the arrow icon */
+      }
 }@media only screen and (min-width: 768px) {
   .swiper{
     height:40vh ;
@@ -92,6 +114,12 @@ height:30vh ;
       .swiper button{
         width: 120px;
         font-size: 14px;
+      }
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        width: 30px; /* set the width of the arrow */
+        height: 30px; /* set the height of the arrow */
+        font-size: 44px; /* set the font size of the arrow icon */
       }
 }/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {

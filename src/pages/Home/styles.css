@@ -6,8 +6,12 @@
     width: 30% !important;
     height: 90% !important;
 }
+.swiper-sliders img{
+    object-fit: contain !important;
+}
 .swiper-important img{
     height: 60% !important;
+    
 }
 .main-men{
     background-image: url(../../../public/assets/man3.avif);
@@ -50,8 +54,81 @@
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .mySwiper{
+    .swiper-sliders{
+        width: 30vw !important;
+        height:200px !important;
+    }
+    .swiper-sliders img{
+        height: 20% !important;
+        width: 100% !important;
 
     }
+    .swiper-sliders del{
+        font-size: 12px;
+    }
+    .swiper-sliders button{
+        width: 100px;
+        font-size: 10px;
+    }
 }
+@media only screen and (min-width: 600px) {
+    .swiper-sliders{
+        width: 20vw !important;
+        height: 250px !important;
+    }
+    .swiper-sliders img{
+        height:30% !important;
+        width: 100% !important;
+    }
+    .swiper-sliders del{
+        font-size: 14px;
+    }
+    .swiper-sliders button{
+        width: 100px;
+        font-size: 12px;
+    }
+    .swiper-sliders p{
+        font-size: 16px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .swiper-sliders{
+        width: 20vw !important;
+        height: 300px !important;
+    }
+    .swiper-sliders p{
+        font-size: 20px;
+    }
+    .swiper-sliders img{
+        height:30% !important;
+        width: 100% !important;
+    }
+    .swiper-sliders del{
+        font-size: 16px;
+    }
+    .swiper-sliders button{
+        width: 120px;
+        font-size: 14px;
+    }
 
+}
+@media only screen and (min-width: 992px) {
+    .swiper-sliders{
+        width: 20vw !important;
+        height: 350px !important;
+    }
+    .swiper-sliders img{
+        height:40% !important;
+        width: 100% !important;
+      
+    }
+    .swiper-sliders del{
+        font-size: 18px;
+    }
+    .swiper-sliders button{
+        width: 120px;
+        font-size: 14px;
+    }
+
+
+}

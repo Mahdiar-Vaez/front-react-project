@@ -119,7 +119,7 @@ export default function Navbar() {
       <Stack
         sx={{
           position:'fixed',
-          top:"1px",
+          top:"0",
           backgroundColor:'white',
           boxShadow:'0 0 20px 0',
           width:'100%',
@@ -131,10 +131,13 @@ export default function Navbar() {
           padding: "20px 10%",
         }}
         direction={"row"}
-        justifyContent={"space-between"}
+        justifyContent={"space-around"}
+        gap={'50px'}
       >
         {" "}
-        <Box component={"img"} src="./assets/logo.png.webp" />{" "}
+        <Box component={"img"} width={50} sx={{
+          objectFit:'contain'
+        }} src="./assets/logo.png.webp" />{" "}
         <Tooltip title={"Open Menu"}>
           <Button
             sx={{
@@ -149,7 +152,6 @@ export default function Navbar() {
         <TextField
           sx={{
             fontFamily: "Alegreya",
-            fontWeight: 700,
             width: "150px",
           }}
           onChange={(e) => setSearchInp(e.target.value)}

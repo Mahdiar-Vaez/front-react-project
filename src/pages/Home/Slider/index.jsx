@@ -25,39 +25,50 @@ export default function Slider() {
   }, []);
   const sliderItems = slider?.map((e, index) => {
     return (
-      <SwiperSlide key={index}>
-        <Box className="img-swiper"
-          sx={{
-            position: "relative",
-          }}
+      <SwiperSlide className="img-swiper" key={index}>
+        <Box
+          
           src={
             process.env.REACT_APP_BASE_URL +
             e?.attributes?.image?.data?.attributes?.url
           }
           alt={e?.attributes?.title}
           component={"img"}
+          sx={{
+            width:'100%',
+            height:'100%'
+          }}
+      
         />
         <Box
           sx={{
-         
+            
             position: "absolute",
             width: "inherit",
-            backgroundColor:'rgba(0, 0, 0,.4)',
-            height:'inherit',
+            height: "inherit",
+            backgroundColor:'rgba(0,0,0,.5)',
             display: "flex",
             justifyContent: "space-evenly",
             alignItems: "center",
             flexDirection: "column",
           }}
         >
-          <Typography component={'h2'} fontFamily={"Alegraya"} color={"white"} variant="h3">
+          <Typography
+            component={"h2"}
+            fontFamily={"Alegraya"}
+            color={"white"}
+            variant="h3"
+      
+            fontWeight={700}
+          >
             {e?.attributes?.title}
           </Typography>
-          <Link to={'/category'}>   <Button  variant="contained" color="success">
-            View More
-          </Button>
+          <Link to={"/category"}>
+            {" "}
+            <Button variant="contained" color="success">
+              View More
+            </Button>
           </Link>
-        
         </Box>
       </SwiperSlide>
     );
@@ -81,6 +92,8 @@ export default function Slider() {
           style={{
             "--swiper-pagination-color": "#416D19", // Change the color of the pagination bullets
             "--swiper-navigation-color": "#BFEA7C", // Change the color of the navigation buttons
+
+            position: "relative",
           }}
           spaceBetween={30}
           centeredSlides={true}

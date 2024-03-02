@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createElement, useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import "./style.css";
@@ -15,6 +15,7 @@ import Select from "@mui/material/Select";
 import fetchApi from "../../utils/fetchApi";
 import shortText from "../../utils/ShortText";
 export function MediaCard({ image, name, price, discount, id }) {
+
   return (
     <Card
       sx={{
@@ -71,6 +72,7 @@ export function MediaCard({ image, name, price, discount, id }) {
   );
 }
 export default function Products() {
+
   const [products, setProducts] = useState([]);
   const [price, setPrice] = React.useState([0, 500]);
   const [isDrawerOpen, setDrawer] = useState(false);
@@ -223,16 +225,19 @@ export default function Products() {
             </Button>
           </Box>
         </Drawer>
+        
         {products.length > 0 ? (
           <>{productsItems}</>
         ) : (
-          <Box
+          <Box component={'div'}
+ 
             sx={{
               width: "100%",
               height: "90vh",
             }}
           >
             <Typography variant="h5">Items Not Found</Typography>
+         
           </Box>
         )}
       </Box>
