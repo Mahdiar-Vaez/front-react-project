@@ -12,9 +12,8 @@ export default function Footer() {
       sx={{
         backgroundColor: "rgb(7, 15, 43) ",
         padding: "20px 10%",
-        height: {md:"350px",
-      xs:'max-content',
-    md:'600px'},
+        height: {
+      xs:'max-content'},
       }}
       component={"footer"}
     >
@@ -203,7 +202,6 @@ export default function Footer() {
         sx={{
           display: "flex",
           marginTop: "20px",
-          marginBottom: 5,
          justifyContent:'center'
         }}
       >
@@ -211,10 +209,10 @@ export default function Footer() {
           color={"white"}
           fontFamily={"Alegreya"}
           textAlign={"center"}
-        
+         sx={{backgroundColor: "rgb(7, 15, 43) ",width:'100%'}} 
         >
-          Copyright 2024 All rights reserved | This is made with 💚 by Mahdiar
-          Vaez
+          Copyright 2024 All rights reserved | This is made with 💚 by Mahdiar Vaez| GitHub : https://github.com/Mahdiar-Vaez
+          
         </Typography>
       </Box>
     </Box>

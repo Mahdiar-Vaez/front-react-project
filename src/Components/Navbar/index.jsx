@@ -139,7 +139,7 @@ export default function Navbar() {
             xs: "flex",
             lg: "none",
           },
-          padding: "20px 10%",
+          padding: {md:"20px 5%",xs:"20px 4px"},
         }}
         direction={"row"}
         justifyContent={"space-between"}
@@ -166,8 +166,8 @@ export default function Navbar() {
           sx={{
             fontFamily: "Alegreya",
             width: {
-              xs:'125px'
-            },
+              xs:'120px'
+            },height:{xs:'10px !important'}
           }}
           onChange={(e) => setSearchInp(e.target.value)}
           color="success"
@@ -217,7 +217,7 @@ export default function Navbar() {
                 alignItems: "center",
               }}
             >
-              <Typography color={"black"} variant="h3" fontWeight={900}>
+              <Typography fontFamily={'Alegreya'} color={"black"} variant="h3" fontWeight={900}>
                 Product Not found
               </Typography>
             </Box>

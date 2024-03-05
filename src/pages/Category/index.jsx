@@ -59,7 +59,7 @@ export function CategoriesCart({ id, name, image }) {
           transition: "all .4s ",
           opacity: 0,
           borderRadius: "20px",
-
+          
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

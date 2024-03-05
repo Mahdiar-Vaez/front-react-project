@@ -1,3 +1,49 @@
 p{
     font-family: 'Alegreya' !important;
 }
+.cat1,.cat4{
+    width: 30% !important;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.cat2,.cat3{
+    width: 60% !important;
+    height: 200px;
+}
+.overlay{
+    position: absolute;
+    top: 47%;
+    width: 90%;
+    height: 50%;
+    background-color: rgba(191, 234, 124,1);    
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    transform: translateY(100%);
+  
+}
+.overlay button{
+    font-size: 30px;
+    font-weight: 800;
+    color: black;
+    font-family: Alegreya;
+}
+.box-cat:hover .overlay{
+    opacity: 1;
+
+    visibility: visible;
+    transform: translate(0);
+    transition: all .5s;
+}
+@media only screen and (max-width:600px){
+    p{font-size: 16px !important;}
+    h3{font-size: 18px !important;}
+}
+@media only screen and (min-width:600px){
+p{ font-size: 20px !important;}
+h3{font-size: 22px !important;}
+}

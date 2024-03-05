@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 export default function Blog() {
   return (
@@ -18,14 +19,32 @@ export default function Blog() {
       my={3}
       sx={{
         padding: "0 10%",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
-      <Box display={"flex"} gap={20}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: {
+            xs: "column-reverse",
+            md: "row",
+          },
+          alignItems: "center",
+          gap: {xs:5,md:20},
+        }}
+      >
         {" "}
         <Card
           sx={{
-            maxWidth: "50%",
-            height: "450px",
+            Width: {
+              xs: "100%",
+              md: "45%",
+            },
+            height: {
+              xs: "400px",
+              md: "420px",
+            },
             position: "relative",
           }}
         >
@@ -34,7 +53,10 @@ export default function Blog() {
               component={"img"}
               sx={{
                 width: "100%",
-                height: "270px",
+                height: {
+                  xs: "200px",
+                  md: "275px",
+                },
               }}
               src="./assets/b1.webp"
             />
@@ -43,7 +65,7 @@ export default function Blog() {
               sx={{
                 position: "absolute",
                 top: "30%",
-                height: "100px",
+                padding:'20PX',
               }}
               size="large"
               color="success"
@@ -51,10 +73,10 @@ export default function Blog() {
               15 JAN
             </Button>
             <CardContent>
-              <Typography fontFamily={"Alegreya"} variant="h4" fontWeight={600}>
+              <Typography component={'h3'} fontFamily={"Alegreya"} variant="h4" fontWeight={600}>
                 Google inks pact for new 35-storey office
               </Typography>
-              <Typography fontFamily={"Alegreya"} fontSize={20} variant="body2">
+              <Typography component={'p'} fontFamily={"Alegreya"} fontSize={20} variant="body2">
                 That dominion stars lights dominion divide years for fourth have
                 don't stars is that he earth it first without heaven in place
                 seed it second morning saying.
@@ -64,7 +86,7 @@ export default function Blog() {
         </Card>
         <Box
           sx={{
-            width: "35%",
+            width:{lg:"35%",xs:'100%'},
 
             height: 450,
             display: "flex",
@@ -108,7 +130,7 @@ export default function Blog() {
               alignItems: "center",
             }}
           >
-            <Typography
+            <Typography component={'p'}
               borderBottom={"1px solid green"}
               fontFamily={"Alegreya"}
               fontWeight={800}
@@ -153,11 +175,11 @@ export default function Blog() {
           </Stack>
         </Box>
       </Box>
-      <Box display={"flex"} gap={20}>
+      <Box  sx={{display:'flex',flexDirection:{xs:'column',md:"row"},gap:{xs:5,md:20}}}>
         <Card
           sx={{
-            maxWidth: "50%",
-            height: "420px",
+            Width: {xs:"100%",md:'50%'},
+            height: "450px",
             marginTop: "20px",
           }}
         >
@@ -171,26 +193,30 @@ export default function Blog() {
               src="./assets/bl2.webp"
             />
             <CardContent>
-              <Typography fontFamily={"Alegreya"} variant="h4" fontWeight={600}>
+              <Typography component={'h3'} fontFamily={"Alegreya"} variant="h4" fontWeight={600}>
                 Google inks pact for new 35-storey office
               </Typography>
-              <Typography fontFamily={"Alegreya"} fontSize={20} variant="body2">
+              <Typography component={'p'} fontFamily={"Alegreya"} fontSize={20} variant="body2">
                 That dominion stars lights dominion divide years for fourth have
                 don't stars is that he earth it first without heaven in place
                 seed it second morning saying.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, dicta!
               </Typography>
             </CardContent>
           </CardActionArea>
         </Card>
         <Stack
           sx={{
-            width: "35%",
-            height: "420px",
+            width: {
+              xs:'100%',
+              lg:'55%'
+            },
+            height: "450px",
             marginTop: "20px",
             backgroundColor: "rgba(191, 234, 124,.4)",
             justifyContent: "center",
             alignItems: "center",
-            gap: "20px",
+            
           }}
         >
           <Typography
@@ -205,23 +231,26 @@ export default function Blog() {
               display: "flex",
               flexDirection: "column",
               gap: 1,
+
             }}
           >
             {" "}
             <Stack
               sx={{
+                width:'100%',
                 cursor: "pointer",
                 "&:hover": {
                   color: "green",
                 },
+            
+                flexDirection:'row',
+                gap:2
               }}
-              gap={2}
-              direction={"row"}
             >
               <Box component={"img"} src="./assets/post1.jpg.webp" />{" "}
               <Stack>
                 {" "}
-                <Typography fontSize={20}>From life was your fish</Typography>
+                <Typography component={'p'} fontSize={20}>From life was your fish</Typography>
                 <span>2 hours ago</span>
               </Stack>
             </Stack>
@@ -238,7 +267,7 @@ export default function Blog() {
               <Box component={"img"} src="./assets/post2.jpg.webp" />{" "}
               <Stack>
                 {" "}
-                <Typography fontSize={20}>The amazing hubble</Typography>
+                <Typography component={'p'} fontSize={20}>The amazing hubble</Typography>
                 <span>2 hours ago</span>
               </Stack>
             </Stack>
@@ -254,7 +283,7 @@ export default function Blog() {
             >
               <Box component={"img"} src="./assets/post3.jpg.webp" />{" "}
               <Stack>
-                <Typography fontSize={20}>Astronomy Or Astrology</Typography>
+                <Typography component={'p'} fontSize={20}>Astronomy </Typography>
                 <span>4 hours ago</span>
               </Stack>
             </Stack>
@@ -270,7 +299,7 @@ export default function Blog() {
             >
               <Box component={"img"} src="./assets/post4.jpg.webp" />{" "}
               <Stack>
-                <Typography fontSize={20}>Asteroids Telescope</Typography>
+                <Typography component={'p'} fontSize={20}>Asteroids Telescope</Typography>
                 <span>2 days ago</span>
               </Stack>
             </Stack>
@@ -278,10 +307,10 @@ export default function Blog() {
           <Box component={"img"} src="" />
         </Stack>
       </Box>
-      <Box display={"flex"} gap={20}>
+      <Box  sx={{display:'flex',flexDirection:{xs:'column',md:'row'},gap:{xs:5,md:20}}}>
         <Card
           sx={{
-            maxWidth: "50%",
+            Width: {xs:'100%',md:'50%'},
             height: "420px",
             marginTop: "20px",
           }}
@@ -296,10 +325,10 @@ export default function Blog() {
               src="./assets/bl3.webp"
             />
             <CardContent>
-              <Typography fontFamily={"Alegreya"} variant="h4" fontWeight={600}>
+              <Typography component={'h3'} fontFamily={"Alegreya"} variant="h4" fontWeight={600}>
                 Google inks pact for new 35-storey office{" "}
               </Typography>
-              <Typography fontFamily={"Alegreya"} fontSize={20} variant="body2">
+              <Typography component={'p'} fontFamily={"Alegreya"} fontSize={20} variant="body2">
                 That dominion stars lights dominion divide years for fourth have
                 don't stars is that he earth it first without heaven in place
                 seed it second morning saying.
@@ -309,7 +338,7 @@ export default function Blog() {
         </Card>
         <Box
           sx={{
-            width: "35%",
+            width:{xs:'100%',lg:'55%'},
             height: "420px",
             display: "flex",
             marginTop: "20px",
@@ -320,16 +349,17 @@ export default function Blog() {
             gap: "20px",
           }}
         >
-          <Typography borderBottom={"1px solid green"}>
+          <Typography fontWeight={700} borderBottom={"1px solid green"}>
             Instagram Feeds
           </Typography>
           <Box
             sx={{
-              width: "70%",
+              width:{xs:'70%',md:'250px !important'},
               display: "flex",
               justifyContent: "center",
-              alignItems: "center",
-              flexWrap: "wrap",
+              alignItems: "start",
+              height:'100%',
+              flexWrap:'wrap',
               gap: "20px",
               "&:hover img": {
                 cursor: "pointer",
@@ -345,9 +375,14 @@ export default function Blog() {
           </Box>
         </Box>
       </Box>
-      <Card
+      <Box sx={{
+        display:'flex',flexDirection:{xs:'column',md:"row"},
+        gap:{xs:5,md:20}
+      }}
+      >
+        <Card
           sx={{
-            maxWidth: "50%",
+            Width: '100%',
             height: "420px",
             marginTop: "20px",
           }}
@@ -362,10 +397,10 @@ export default function Blog() {
               src="./assets/bl4.webp"
             />
             <CardContent>
-              <Typography fontFamily={"Alegreya"} variant="h4" fontWeight={600}>
+              <Typography component={'h3'} fontFamily={"Alegreya"} variant="h4" fontWeight={600}>
                 Google inks pact for new 35-storey office{" "}
               </Typography>
-              <Typography fontFamily={"Alegreya"} fontSize={20} variant="body2">
+              <Typography component={'p'} fontFamily={"Alegreya"} fontSize={20} variant="body2">
                 That dominion stars lights dominion divide years for fourth have
                 don't stars is that he earth it first without heaven in place
                 seed it second morning saying.
@@ -373,6 +408,8 @@ export default function Blog() {
             </CardContent>
           </CardActionArea>
         </Card>
+       
+      </Box>
     </Box>
   );
 }
