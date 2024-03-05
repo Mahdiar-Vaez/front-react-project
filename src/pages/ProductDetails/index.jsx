@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import "swiper/css";
 import "swiper/css/navigation";
 import fetchApi from "../../utils/fetchApi";
+import { toast } from "react-toastify";
+import Toast from "../../Components/Toast/Toast";
 export default function ProductDetails() {
   const params = useParams();
   const dispatch = useDispatch();
@@ -128,7 +130,9 @@ export default function ProductDetails() {
           )}
           <Tooltip title={"Add to Cart"} placement="top">
             <Button
-              onClick={() => dispatch(addItem(product))}
+              onClick={() =>{ dispatch(addItem(product))
+              toast.success(`${quantity==undefined?'ADDED TO YOUR CART':quantity+1 + " of this product Added To Your Cart" }  `)
+              }}
               sx={{
                 width: "75px",
                 height: "50px",
@@ -145,6 +149,7 @@ export default function ProductDetails() {
             {quantity ? quantity + " of this product Added To Your Cart" : ""}
           </Typography>
         </Stack>
+        <Toast/>
       </Box>
     </>
   );
