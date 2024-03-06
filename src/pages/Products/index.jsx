@@ -25,6 +25,7 @@ export function MediaCard({ image, name, price, discount, id }) {
         },
         height:{
           xs:'300px',
+          sm:'350px',
           md:'400px'
           
         },
@@ -246,7 +247,6 @@ export default function Products() {
                 <InputLabel
                   size="small"
                   id="demo-simple-select-label"
-                  sx={{}}
                   color="success"
                   variant="outlined"
                 >
@@ -276,13 +276,16 @@ export default function Products() {
           <>{productsItems}</>
         ) : (
           <Box component={'div'}
- 
+
             sx={{
+              justifyContent:'center',
+              alignItems:"center",
+              display:'flex',
               width: "100%",
               height: "90vh",
             }}
           >
-            <Typography variant="h5">Items Not Found</Typography>
+            <Typography variant="h5" fontFamily={'Alegreya'}>Items Not Found</Typography>
          
           </Box>
         )}

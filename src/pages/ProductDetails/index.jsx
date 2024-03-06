@@ -65,7 +65,7 @@ export default function ProductDetails() {
           }}
         >
           {product?.attributes?.image?.data.length > 1 ? (
-            <Swiper
+            <Swiper className="product-details-swiper"
               style={{
                 "--swiper-pagination-color": "#416D19", // Change the color of the pagination bullets
                 "--swiper-navigation-color": "#ff0000", // Change the color of the navigation buttons
@@ -76,7 +76,7 @@ export default function ProductDetails() {
               {imgItems}
             </Swiper>
           ) : (
-            <Swiper>
+            <Swiper className="product-details-swiper">
               <SwiperSlide className="product-details-slider">
                 <Box
                   component={"img"}

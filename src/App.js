@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -13,10 +13,16 @@ import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 import "./App.css";
 import Blog from "./pages/blog";
+import CheckContext from "./utils/CheckOutContext";
 export default function App() {
+  const [TotalPrice,setTotalPrice]=useState()
+  const handlePrice=(e)=>{
+    setTotalPrice(e)
+  }
   const { token } = useSelector((state) => state.auth);
     return (
     <>
+    <CheckContext.Provider value={{TotalPrice,handlePrice}} >
       <Navbar />{" "}
       <Box
         sx={{
@@ -40,6 +46,7 @@ export default function App() {
         </Routes>{" "}
       </Box>
       <Footer />
+      </CheckContext.Provider>
     </>
   );
 }

@@ -17,7 +17,12 @@ import axios from "axios";
 import useFormFields from "../../../utils/UseFormFields";
 import Toast from "../../../Components/Toast/Toast";
 import { toast } from "react-toastify";
+import {  InputAdornment } from "@mui/material";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useState } from "react";
 function Copyright(props) {
+
   return (
     <Typography
       variant="body2"
@@ -39,6 +44,7 @@ function Copyright(props) {
 
 export default function Login({ handlePageType }) {
   const dispatch = useDispatch();
+  const [pass,setPass]=useState(true)
   const [fields, handleFields] = useFormFields();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,7 +66,11 @@ export default function Login({ handlePageType }) {
           alignItems: "center",
           width: "100%",
           height: "700px",
-          backgroundColor: "rgba(155, 207, 83,.3)",
+          backdropFilter:' blur(5px) saturate(200%)',
+    webkitBackdropFilter: 'blur(5px) saturate(200%)',
+    backgroundColor: 'rgba(17, 25, 40, 0.52)',
+    borderRadius: '12px',
+    border: '1px solid rgba(255, 255, 255, 0.125)'
         }}
       >
         <Container
@@ -113,10 +123,19 @@ export default function Login({ handlePageType }) {
                     name="password"
                     color="success"
                     label="Password"
-                    type="password"
+                    type={pass?"password":'text'}
                     id="password"
                     autoComplete="new-password"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment  position="start">
+                         { pass?< VisibilityOffIcon sx={{cursor:'pointer'}} onClick={()=>setPass(!pass)}  />:
+                         <VisibilityIcon sx={{cursor:'pointer'}} onClick={()=>setPass(!pass)}/>
+                         }
+                        </InputAdornment>
+                      ),}}
                   />
+              
                 </Grid>
                 <Grid item xs={12}>
                   <FormControlLabel

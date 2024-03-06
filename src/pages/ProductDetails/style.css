@@ -1,3 +1,6 @@
 .product-details-slider img{
-    object-fit:contain ;
+    object-fit:contain ;  
+}
+.product-details-swiper {
+    width: 50% !important;
 }

@@ -10,6 +10,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import fetchApi from "../../../utils/fetchApi";
 import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Slider() {
   const [slider, setSlider] = useState();
@@ -26,14 +27,16 @@ export default function Slider() {
   const sliderItems = slider?.map((e, index) => {
     return (
       <SwiperSlide className="img-swiper" key={index}>
-        <Box
+        <Box 
           
           src={
             process.env.REACT_APP_BASE_URL +
             e?.attributes?.image?.data?.attributes?.url
           }
           alt={e?.attributes?.title}
-          component={"img"}
+          component={motion.img}
+          initial={{opacity:0,visibility:'hidden',scale:0}}
+          whileInView={{opacity:1,visibility:'visible',scale:1}}
           sx={{
             width:'100%',
             height:'100%'

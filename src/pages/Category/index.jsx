@@ -37,7 +37,7 @@ export function CategoriesCart({ id, name, image }) {
           width: "100%",
           height: "100%",
           borderRadius: "20px",
-
+          objectFit:'cover',
           transition: "all .4s ",
         }}
         component={"img"}
@@ -49,7 +49,7 @@ export function CategoriesCart({ id, name, image }) {
         variant="text"
         sx={{
           width: "100%",  
-
+          
           position: "absolute",
           backgroundColor: "rgba(65, 109, 25,.6)",
           height: "50%",
@@ -148,7 +148,7 @@ export default function Category() {
           backgroundColor: "rgba(191, 234, 124)",
         }}
         direction={"column"}
-        gap={4}
+        gap={2}
         justifyContent={"center"}
         alignItems={"center"}
       >

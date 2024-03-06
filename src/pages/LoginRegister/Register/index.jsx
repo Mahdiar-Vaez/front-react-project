@@ -11,9 +11,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import "../Login/style.css";
-import { Tooltip } from "@mui/material";
+import { InputAdornment, Tooltip } from "@mui/material";
 import useFormFields from "../../../utils/UseFormFields";
 import { toast } from "react-toastify";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useState } from "react";
 function Copyright(props) {
   return (
     <Typography
@@ -35,7 +38,9 @@ function Copyright(props) {
 // TODO remove, this demo shouldn't need to reset the theme.
 
 export default function Register({ handlePageType }) {
-  const [image,setImage]=React.useState()
+  const [pass,setPass]=useState(true)
+
+  const [image,setImage]=useState()
   const [fields,handleFields]=useFormFields()
   const handleSubmit=(e)=>{
     e.preventDefault()
@@ -147,6 +152,14 @@ export default function Register({ handlePageType }) {
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment  position="start">
+                         { pass?< VisibilityOffIcon sx={{cursor:'pointer'}} onClick={()=>setPass(!pass)}  />:
+                         <VisibilityIcon sx={{cursor:'pointer'}} onClick={()=>setPass(!pass)}/>
+                         }
+                        </InputAdornment>
+                      ),}}
                   />
                 </Grid>
                 <Grid item xs={12}>

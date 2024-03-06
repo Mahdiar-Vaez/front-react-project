@@ -38,7 +38,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: white;
+    color: rgb(141, 229, 25);
     /* color: var(--swiper-theme-color); */
   }
   
@@ -61,7 +61,7 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 450px){
   .img-swiper{
-    height: 20vh !important;
+    height: 30vh !important;
   }
 }
 @media only screen and (max-width: 600px) {

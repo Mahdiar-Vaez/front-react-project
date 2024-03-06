@@ -11,9 +11,8 @@ import {
   TextField,
   Toolbar,
   Tooltip,
-  useMediaQuery,
 } from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import CategoryIcon from "@mui/icons-material/Category";
@@ -34,7 +33,11 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../redux/slices/AuthSlice";
 import { toast } from "react-toastify";
 import Toast from "../Toast/Toast";
+import {useScroll,motion} from 'framer-motion'
 export default function Navbar() {
+    // for scroll
+  const {scrollYProgress}=useScroll()
+    // for scroll
   const [searchInp, setSearchInp] = useState();
   const [searchResult, setSearchResult] = useState([]);
   const [drawer, setDrawer] = useState(false);
@@ -126,7 +129,17 @@ export default function Navbar() {
     );
   });
   return (
-    <>
+    
+          <> <motion.div style={{
+        scaleX:scrollYProgress,
+        zIndex:100,
+        position:'fixed',top:'80px',
+        right:0,left:0,
+        height:5,backgroundColor:'#FFF67E',
+        transformOrigin:'0%'
+    }} >
+        
+    </motion.div>
       <Stack
         sx={{
           position: "fixed",
@@ -182,7 +195,7 @@ export default function Navbar() {
             ),
           }}
         />
-        <Box
+        <Box 
           className="search-container"
           sx={{
             borderRadius: "20px",
@@ -530,7 +543,7 @@ export default function Navbar() {
                 Logout
               </Button>
             )}
-            <Toast />
+            <Toast/>
           </Stack>
         </Toolbar>
       </AppBar>
