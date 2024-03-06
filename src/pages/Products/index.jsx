@@ -148,7 +148,6 @@ export default function Products() {
           }&sort=${sort}`
         );
         setProducts(res.data);
-        console.log(products);
       } catch (error) {
         console.log(error);
       }

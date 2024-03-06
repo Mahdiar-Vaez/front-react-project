@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react";
 import fetchApi from "../../utils/fetchApi";
 import { Link } from "react-router-dom";
 export function CategoriesCart({ id, name, image }) {
-  {
-    console.log(image);
-  }
+
   return (
     <Box
       sx={{
@@ -91,18 +89,13 @@ export default function Category() {
       try {
         const res = await fetchApi("categories?populate=*");
         setCategory(res.data);
-        console.log(res.data);
       } catch (error) {
         console.log(error);
       }
     })();
   }, []);
   const categoriesItems = category?.map((e, index) => {
-    {
-      console.log(
-        process.env.REACT_APP_BASE_URL + e?.attributes?.image?.data?.image
-      );
-    }
+ 
     return (
       <Box    key={index} sx={{
         display:'flex',

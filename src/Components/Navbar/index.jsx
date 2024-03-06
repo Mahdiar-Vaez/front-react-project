@@ -58,7 +58,7 @@ export default function Navbar() {
           );
           setSearchResult(res?.data);
         } catch (error) {
-          console.log(error);
+          console.log(error)
         }
       })();
     }

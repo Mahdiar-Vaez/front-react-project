@@ -16,8 +16,8 @@ import CheckContext from "../../utils/CheckOutContext";
 export default function Cart() {
   const {price,handlePrice}=useContext(CheckContext)
   const { list } = useSelector((state) => state.cart);
-  console.log(list)
-  const dispatch = useDispatch();  let TotalPrice= 0
+  const dispatch = useDispatch();  
+  let TotalPrice= 0
   const items = list.map((e, index) => {
   
     TotalPrice+=e?.quantity*e?.attributes?.price

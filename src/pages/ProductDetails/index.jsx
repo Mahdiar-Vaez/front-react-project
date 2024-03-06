@@ -21,7 +21,6 @@ export default function ProductDetails() {
   const quantity = useSelector((state) => state.cart.list)?.filter(
     (e) => e.id == id
   )[0]?.quantity;
-  console.log(quantity);
   const [product, setProduct] = useState();
   useEffect(() => {
     (async () => {
