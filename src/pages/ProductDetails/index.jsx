@@ -127,13 +127,13 @@ export default function ProductDetails() {
           ) : (
             ""
           )}
-          <Tooltip title={"Add to Cart"} placement="top">
+     
             <Button
               onClick={() =>{ dispatch(addItem(product))
-              toast.success(`${quantity==undefined?'ADDED TO YOUR CART':quantity+1 + " of this product Added To Your Cart" }  `)
+              toast.success(`${quantity==undefined?'Added To Your Cart':quantity+1 + " of this product Added To Your Cart" }  `)
               }}
               sx={{
-                width: "75px",
+                width: "175px",
                 height: "50px",
                 textAlign: "center",
               }}
@@ -142,8 +142,7 @@ export default function ProductDetails() {
               startIcon={<AddShoppingCartIcon />}
               variant="contained"
               first
-            />
-          </Tooltip>
+            >Add To Cart</Button>
           <Typography>
             {quantity ? quantity + " of this product Added To Your Cart" : ""}
           </Typography>

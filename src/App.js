@@ -44,7 +44,7 @@ export default function App() {
           <Route path="/cart"  element={token?<Cart/>:<Navigate to={'/login-register'}/>}/>
           <Route element={<Blog />} path="/blog" />
           <Route element={<PageNotFound />} path="*" />
-          <Route element={token?<CheckOut />:<Navigate to={'/login-register'}/>} path="/check-out" />
+          <Route path="/check-out" element={token?<CheckOut />:<Navigate to={'/login-register'}/>} />
         </Routes>{" "}
       </Box>
       <Footer />

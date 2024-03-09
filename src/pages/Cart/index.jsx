@@ -155,7 +155,7 @@ export default function Cart() {
                 </Button>
               </TableCell>
               <TableCell>
-                <Button
+              <Link to={'/check-out'}> <Button
                   onClick={handlePrice(TotalPriceValue)}
                   sx={{
                     height: { xs: "30px", md: "45px" },
@@ -164,8 +164,8 @@ export default function Cart() {
                   variant="outlined"
                   color="warning"
                 >
-                  <Link to={'/check-out'}>Check Out</Link>
-                </Button>
+               Check Out
+                </Button></Link>
               </TableCell>
             </TableRow>
           </Table>
