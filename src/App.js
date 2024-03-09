@@ -14,8 +14,9 @@ import { Box } from "@mui/material";
 import "./App.css";
 import Blog from "./pages/blog";
 import CheckContext from "./utils/CheckOutContext";
+import CheckOut from "./pages/CheckOut";
 export default function App() {
-  const [TotalPrice,setTotalPrice]=useState()
+  const [TotalPrice,setTotalPrice]=useState(0)
   const handlePrice=(e)=>{
     setTotalPrice(e)
   }
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/cart"  element={token?<Cart/>:<Navigate to={'/login-register'}/>}/>
           <Route element={<Blog />} path="/blog" />
           <Route element={<PageNotFound />} path="*" />
+          <Route element={token?<CheckOut />:<Navigate to={'/login-register'}/>} path="/check-out" />
         </Routes>{" "}
       </Box>
       <Footer />

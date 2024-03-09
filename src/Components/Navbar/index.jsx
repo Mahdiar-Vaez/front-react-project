@@ -135,7 +135,7 @@ export default function Navbar() {
         zIndex:100,
         position:'fixed',top:'80px',
         right:0,left:0,
-        height:5,backgroundColor:'#FFF67E',
+        height:5,backgroundColor:'#9BCF53',
         transformOrigin:'0%'
     }} >
         

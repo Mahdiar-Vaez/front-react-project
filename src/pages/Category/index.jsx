@@ -134,7 +134,7 @@ export default function Category() {
   });
   return (
     <>
-      <Stack
+    {category?    <Stack
         sx={{
           padding: "5px 5%",
           height: "max-content",
@@ -146,7 +146,18 @@ export default function Category() {
         alignItems={"center"}
       >
         {categoriesItems}
+      </Stack>:
+      <Stack         sx={{
+        padding: "5px 5%",
+        height: "750px",
+        backgroundColor: "rgba(191, 234, 124)",
+        justifyContent:'center',
+        alignItems:'center'
+      }}>
+        <Typography fontWeight={600}>Check Your Internet Connection </Typography>
       </Stack>
+      }
+  
     </>
   );
 }
