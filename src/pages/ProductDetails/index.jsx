@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { Box, Button, Stack, Tooltip, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Rating,
+  Stack,
+  TextField, Typography
+} from "@mui/material";
 import { useParams } from "react-router-dom";
 import "./style.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,14 +20,13 @@ import fetchApi from "../../utils/fetchApi";
 import { toast } from "react-toastify";
 import Toast from "../../Components/Toast/Toast";
 export default function ProductDetails() {
-  const params = useParams();
   const dispatch = useDispatch();
-
   const id = useParams().id;
   const quantity = useSelector((state) => state.cart.list)?.filter(
     (e) => e.id == id
   )[0]?.quantity;
   const [product, setProduct] = useState();
+ 
   useEffect(() => {
     (async () => {
       try {
@@ -64,7 +69,8 @@ export default function ProductDetails() {
           }}
         >
           {product?.attributes?.image?.data.length > 1 ? (
-            <Swiper className="product-details-swiper"
+            <Swiper
+              className="product-details-swiper"
               style={{
                 "--swiper-pagination-color": "#416D19", // Change the color of the pagination bullets
                 "--swiper-navigation-color": "#ff0000", // Change the color of the navigation buttons
@@ -97,10 +103,20 @@ export default function ProductDetails() {
           }}
           gap={5}
         >
-          <Typography textAlign={'center'} variant="h5" fontFamily={'Alegreya'} fontWeight={800}>
+          <Typography
+            textAlign={"center"}
+            variant="h5"
+            fontFamily={"Alegreya"}
+            fontWeight={800}
+          >
             {product?.attributes?.name}
           </Typography>
-          <Typography sx={{fontSize:'20px !important'}} textAlign={'center'} fontFamily={'Alegreya'}  variant="body2">
+          <Typography
+            sx={{ fontSize: "20px !important" }}
+            textAlign={"center"}
+            fontFamily={"Alegreya"}
+            variant="body2"
+          >
             {product?.attributes?.description}
           </Typography>
           {product?.attributes?.discount > 0 ? (
@@ -127,27 +143,36 @@ export default function ProductDetails() {
           ) : (
             ""
           )}
-     
-            <Button
-              onClick={() =>{ dispatch(addItem(product))
-              toast.success(`${quantity==undefined?'Added To Your Cart':quantity+1 + " of this product Added To Your Cart" }  `)
-              }}
-              sx={{
-                width: "175px",
-                height: "50px",
-                textAlign: "center",
-              }}
-              size="small"
-              color="success"
-              startIcon={<AddShoppingCartIcon />}
-              variant="contained"
-              first
-            >Add To Cart</Button>
+
+          <Button
+            onClick={() => {
+              dispatch(addItem(product));
+              toast.success(
+                `${
+                  quantity == undefined
+                    ? "Added To Your Cart"
+                    : quantity + 1 + " of this product Added To Your Cart"
+                }  `
+              );
+            }}
+            sx={{
+              width: "175px",
+              height: "50px",
+              textAlign: "center",
+            }}
+            size="small"
+            color="success"
+            startIcon={<AddShoppingCartIcon />}
+            variant="contained"
+            first
+          >
+            Add To Cart
+          </Button>
           <Typography>
             {quantity ? quantity + " of this product Added To Your Cart" : ""}
           </Typography>
-        </Stack>
-        <Toast/>
+         </Stack>
+        <Toast />
       </Box>
     </>
   );

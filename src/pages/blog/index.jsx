@@ -209,7 +209,7 @@ export default function Blog() {
           sx={{
             width: {
               xs:'100%',
-              lg:'55%'
+              lg:'51%'
             },
             height: "450px",
             marginTop: "20px",
@@ -358,7 +358,7 @@ export default function Blog() {
               display: "flex",
               justifyContent: "center",
               alignItems: "start",
-              height:'100%',
+              height:'50%',
               flexWrap:'wrap',
               gap: "20px",
               "&:hover img": {
@@ -370,45 +370,9 @@ export default function Blog() {
             <Box component={"img"} src="./assets/w2.webp" />
             <Box component={"img"} src="./assets/w3.webp" />
             <Box component={"img"} src="./assets/w4.webp" />
-            <Box component={"img"} src="./assets/w6.webp" />
-            <Box component={"img"} src="./assets/w5.webp" />
+         
           </Box>
         </Box>
-      </Box>
-      <Box sx={{
-        display:'flex',flexDirection:{xs:'column',md:"row"},
-        gap:{xs:5,md:20}
-      }}
-      >
-        <Card
-          sx={{
-            Width: '100%',
-            height: "420px",
-            marginTop: "20px",
-          }}
-        >
-          <CardActionArea>
-            <CardMedia
-              component={"img"}
-              sx={{
-                width: "100%",
-                height: "270px",
-              }}
-              src="./assets/bl4.webp"
-            />
-            <CardContent>
-              <Typography component={'h3'} fontFamily={"Alegreya"} variant="h4" fontWeight={600}>
-                Google inks pact for new 35-storey office{" "}
-              </Typography>
-              <Typography component={'p'} fontFamily={"Alegreya"} fontSize={20} variant="body2">
-                That dominion stars lights dominion divide years for fourth have
-                don't stars is that he earth it first without heaven in place
-                seed it second morning saying.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-       
       </Box>
     </Box>
   );

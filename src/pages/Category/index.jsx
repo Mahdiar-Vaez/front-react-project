@@ -122,7 +122,7 @@ export default function Category() {
               md:'40%'
             },
             borderRadius:'20px',
-            backgroundColor:'rgba(255, 246, 126,.5)'
+            backgroundColor:'rgb(191, 234, 124)'
           }}> <Typography textAlign={"center"}  fontSize={16} fontWeight={300} variant="body2">
           {e?.attributes?.description}
         
@@ -138,7 +138,7 @@ export default function Category() {
         sx={{
           padding: "5px 5%",
           height: "max-content",
-          backgroundColor: "rgba(191, 234, 124)",
+          
         }}
         direction={"column"}
         gap={2}
