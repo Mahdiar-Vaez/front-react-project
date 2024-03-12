@@ -149,7 +149,7 @@ export default function Register({ handlePageType }) {
                     name="password"
                     color="success"
                     label="Password"
-                    type="password"
+                    type={pass?'password':"text"}
                     id="password"
                     autoComplete="new-password"
                     InputProps={{
